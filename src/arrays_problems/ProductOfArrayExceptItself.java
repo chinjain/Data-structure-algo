@@ -59,12 +59,11 @@ public class ProductOfArrayExceptItself {
 		for (int i = 0; i < arr.length; i++) {
 			res[i] = prefixArray[i] * suffixArray[i];
 		}
-
+		
 		System.out.println("============ProductOfArrayExceptItself.optimalApproach()");
 		Arrays.stream(res).forEach(System.out::println);
-
 	}
-
+	
 	private static void bruteForce(int[] arr) {
 
 		int[] result = new int[arr.length];

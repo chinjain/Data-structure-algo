@@ -1,4 +1,4 @@
-package linkedlist_problems;
+	package linkedlist_problems;
 
 public class Reverse_LinkedList_Recursion {
 
@@ -17,6 +17,8 @@ public class Reverse_LinkedList_Recursion {
 		}
 
 	}
+	
+	// 1 -> 2 -> 3 ->  5 -> 4 -> null  ;
 
 	private static Node reverse(Node head) {
 

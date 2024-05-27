@@ -38,7 +38,6 @@ public class TrappingRainWater {
 				} else {
 					res += (maxLeft - arr[left]);
 				}
-
 				left++;
 			} else {
 				if (maxRight < arr[right]) {

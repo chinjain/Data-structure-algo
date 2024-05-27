@@ -20,9 +20,10 @@ public class Longest_Prefix_String {
 
 		int i = 0;
 		int j = 0;
+		String matchStr = s[s.length - 1];
 
 		while (i < s[0].length()) {
-			String matchStr = s[s.length - 1];
+			
 
 			if (s[0].charAt(i) == matchStr.charAt(j)) {
 				prefix.append(s[0].charAt(i));

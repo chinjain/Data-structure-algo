@@ -6,7 +6,7 @@ import java.util.HashSet;
 public class RemoveDuplicateElement {
 
 	public static void main(String[] args) {
-		int arr[] = { 1, 1, 2, 2, 2, 3, 3 };
+		int arr[] = { 1,2,3,4 };
 		bruteForce(arr);
 		optimalApproach(arr);
 

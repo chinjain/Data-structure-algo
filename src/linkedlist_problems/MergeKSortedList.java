@@ -25,6 +25,12 @@ public class MergeKSortedList {
 	private static void mergeKBruteForce(List<Node> nodes) {
 
 		PriorityQueue<Node> nodeMinHeap = new PriorityQueue<Node>((a, b) -> a.val - b.val);
+		
+		/*
+		 * This loop will insert all the first node of the K linked list present afte that we 
+		 * will put the value into the queue and form the sorted single list 
+		 * 
+		 */
 		for (Node n : nodes) {
 			if (n != null) {
 				nodeMinHeap.add(n);
