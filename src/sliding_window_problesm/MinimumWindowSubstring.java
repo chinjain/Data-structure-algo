@@ -32,6 +32,21 @@ public class MinimumWindowSubstring {
 
 	private static void optimised(String s, String t) {
 
+		/*
+		 * The appraoch Steps
+		 * 
+		 * 1. Create one map and store all the character of t
+		 * 
+		 * 2. then create variable to loop around Start pointer and end pointer
+		 * 
+		 * 3. matched if any point of time if we get character matched the we will
+		 * increament the value
+		 * 
+		 * 4. minLenght this will make sure the length of the min substring we need to
+		 * get the value we WE WILL initialise with max of str.length() + 1;
+		 * 
+		 */
+
 		Map<Character, Integer> map = new HashMap<Character, Integer>();
 		for (char x : t.toCharArray())
 			map.put(x, map.getOrDefault(x, 0) + 1);
