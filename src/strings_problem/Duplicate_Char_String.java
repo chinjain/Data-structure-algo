@@ -46,6 +46,8 @@ public class Duplicate_Char_String {
 	}
 
 	private static void optimal(String s) {
+		
+		System.out.println("Duplicate_Char_String.optimal()");
 
 		char ch[] = s.toCharArray();
 		Arrays.sort(ch);

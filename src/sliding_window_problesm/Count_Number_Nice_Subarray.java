@@ -19,19 +19,19 @@ public class Count_Number_Nice_Subarray {
 
 		naiveApproach(a, k);
 
-//		int res = 0;
-//		int count = 0;
-//
-//		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-//		map.put(0, 1);
-//
-//		for (int i : a) {
-//			count += i % 2;
-//			res += map.getOrDefault(count - k, 0);
-//			map.put(count, map.getOrDefault(count, 0) + 1);
-//		}
-//
-//		System.out.println(res);
+		int res = 0;
+		int count = 0;
+
+		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		map.put(0, 1);
+
+		for (int i : a) {
+			count += i % 2;
+			res += map.getOrDefault(count - k, 0);
+			map.put(count, map.getOrDefault(count, 0) + 1);
+		}
+
+		System.out.println(res);
 
 	}
 
@@ -52,7 +52,7 @@ public class Count_Number_Nice_Subarray {
 
 			}
 		}
-		
+
 		System.out.println("Count_Number_Nice_Subarray.naiveApproach()");
 		System.out.println(cnt);
 

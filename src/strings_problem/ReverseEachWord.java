@@ -9,7 +9,7 @@ public class ReverseEachWord {
 	public static void main(String[] args) {
 
 		String s = "Hello World";
-//		bruteForce(s);
+		//		bruteForce(s);
 		externalSpachSolution(s);
 		reverseStringWordWithoutchangingTheOrder(s);
 		wordReverse(s);
@@ -17,17 +17,17 @@ public class ReverseEachWord {
 	}
 
 	private static void wordReverse(String s) {
-		
+
 		String[] str = s.split(" ");
 		StringBuffer sb = new StringBuffer();
-		
-		for(int i = str.length - 1; i >= 0; --i) {
+
+		for (int i = str.length - 1; i >= 0; --i) {
 			sb.append(str[i] + " ");
 		}
-		
+
 		System.out.println("ReverseEachWord.wordReverse()");
 		System.out.println(sb.toString());
-		
+
 	}
 
 	private static void reverseStringWordWithoutchangingTheOrder(String s) {

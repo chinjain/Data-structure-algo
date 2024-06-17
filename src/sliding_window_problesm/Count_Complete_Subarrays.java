@@ -12,6 +12,16 @@ public class Count_Complete_Subarrays {
 		int a[] = { 5, 5, 5, 5 };
 		countSubarrays(a, a.length);
 
+		/*
+		 * I will count the unique element from the array itself and then will find the
+		 * value of the subarray which consist of those unique elements only
+		 * 
+		 * We will maintain one count variable which will hold the value of total unique
+		 * elements from the system by subtracting value n - r(the current window
+		 * pointer) + ans(previous window sum).
+		 * 
+		 */
+
 	}
 
 	private static void countSubarrays(int[] a, int n) {

@@ -62,15 +62,3 @@ public class Valid_Anagram {
 		}
 	}
 }
-
-
-interface lol{
-	static void t1() {
-		
-	}
-	
-	
-	static void t2() {
-		
-	}
-}

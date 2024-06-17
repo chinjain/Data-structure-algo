@@ -1,4 +1,4 @@
-	package linkedlist_problems;
+package linkedlist_problems;
 
 public class Reverse_LinkedList_Recursion {
 
@@ -9,7 +9,7 @@ public class Reverse_LinkedList_Recursion {
 		head.next.next = new Node(2);
 		head.next.next.next = new Node(4);
 
-		Node newHead = reverse(head);
+		Node newHead = reverse(head, null);
 
 		while (newHead != null) {
 			System.out.println(newHead.val);
@@ -17,21 +17,31 @@ public class Reverse_LinkedList_Recursion {
 		}
 
 	}
-	
-	// 1 -> 2 -> 3 ->  5 -> 4 -> null  ;
 
-	private static Node reverse(Node head) {
+	private static Node reverse(Node node, Node prev) {
+		if (node == null)
+			return prev;
 
-		if (head == null || head.next == null) {
-			return head;
-		}
+		Node temp = node.next;
+		node.next = prev;
 
-		Node newHead = reverse(head.next);
-		head.next.next = head;
-		head.next = null;
-
-		return newHead;
-
+		return reverse(temp, node);
 	}
+
+	// 1 -> 2 -> 3 -> 5 -> 4 -> null ;
+
+//	private static Node reverse(Node head) {
+//
+//		if (head == null || head.next == null) {
+//			return head;
+//		}
+//
+//		Node newHead = reverse(head.next);
+//		head.next.next = head;
+//		head.next = null;
+//
+//		return newHead;
+//
+//	}
 
 }

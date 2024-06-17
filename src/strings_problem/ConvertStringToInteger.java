@@ -29,17 +29,7 @@ public class ConvertStringToInteger {
 		for (int i = 0; i < alphanumericArray.length; i++) {
 			if (Character.isDigit(alphanumericArray[i])) {
 				System.out.println(alphanumericArray[i]);
-//				if (alphanumericArray[i] != '0') {
-//					res[i] = alphanumericArray[i] - '0';
-//				}
-
 			}
 		}
-
-//		Arrays.stream(res).forEach((s) -> {
-//			System.out.println(s);
-//		});
-
 	}
-
 }

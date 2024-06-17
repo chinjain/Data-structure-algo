@@ -1,6 +1,8 @@
 package binary_tree_problesm;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Level_order_traversal {
@@ -27,13 +29,15 @@ public class Level_order_traversal {
 
 		Queue<Tree> queue = new LinkedList<Tree>();
 		queue.add(root);
+		List<List<Integer>> res = new ArrayList<List<Integer>>();
 
 		while (queue.size() > 0) {
 			int count = queue.size();
+			List<Integer> list = new ArrayList<Integer>();
 			for (int i = 0; i < count; i++) {
 
 				Tree node = queue.remove();
-				System.out.print(node.val + " ");
+				list.add(node.val);
 
 				if (node.left != null) {
 					queue.add(node.left);
@@ -44,7 +48,11 @@ public class Level_order_traversal {
 				}
 
 			}
+			res.add(list);
+
 		}
+
+		res.stream().forEach(System.out::println);
 
 	}
 

@@ -32,8 +32,8 @@ public class Maximum_Consequtive_One {
 			maxOccurence = Math.max(maxOccurence, map.get(arr[i]));
 
 			while (i - j + 1 - maxOccurence > k) {
-				if (map.get(arr[i]) == 1) {
-					map.remove(arr[i]);
+				if (map.get(arr[j]) == 1) {
+					map.remove(arr[j]);
 				}
 				map.put(arr[j], map.get(arr[j]) - 1);
 				j++;
@@ -60,7 +60,7 @@ public class Maximum_Consequtive_One {
 			}
 
 			while (count > k) {
-
+				
 				if (arr[j] == 0) {
 					count--;
 				}

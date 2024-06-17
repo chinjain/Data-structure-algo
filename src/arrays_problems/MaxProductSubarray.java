@@ -4,17 +4,40 @@ public class MaxProductSubarray {
 
 	public static void main(String[] args) {
 
-		//		int arr[] = { 1, -2, -3, 0, 7, -8, -2 };
+		// int arr[] = { 1, -2, -3, 0, 7, -8, -2 };
 		int arr[] = { 2, 5, 6, -1, -2, -4, 0, 0, 0 };
 		bruteForce(arr);
 		kadaneAlgorithm(arr);
 		FinalOptimalApproach(arr);
 
-		//		MaxProductSubarray maxProductSubarray = new MaxProductSubarray();
+		// MaxProductSubarray maxProductSubarray = new MaxProductSubarray();
 
 	}
 
 	private static void FinalOptimalApproach(int[] arr) {
+
+		System.out.println("MaxProductSubarray.FinalOptimalApproach()");
+
+		int[] prefix = new int[arr.length];
+		int[] suffix = new int[arr.length];
+		int res = 1;
+
+		prefix[0] = arr[0];
+		suffix[arr.length - 1] = arr[arr.length - 1];
+
+		for (int i = 1; i < arr.length; i++) {
+			prefix[i] = prefix[i - 1] * arr[i];
+		}
+
+		for (int i = arr.length - 2; i >= 0; i--) {
+			suffix[i] = suffix[i + 1] * arr[i];
+		}
+
+		for (int i = 0; i < arr.length; i++) {
+			res = Math.max(res, Math.max(prefix[i], suffix[i]));
+		}
+
+		System.out.println(res);
 
 	}
 
