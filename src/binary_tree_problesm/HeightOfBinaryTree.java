@@ -21,7 +21,7 @@ public class HeightOfBinaryTree {
 	 */
 
 	public static void main(String[] args) {
-
+		
 		Tree root = new Tree(50);
 		root.left = new Tree(25);
 		root.right = new Tree(75);

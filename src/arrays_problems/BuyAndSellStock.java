@@ -7,6 +7,25 @@ public class BuyAndSellStock {
 		int arr[] = { 7, 1, 5, 3, 6, 4 };
 		brute(arr);
 		optimal(arr);
+		approach2(arr);
+	}
+
+	private static void approach2(int[] arr) {
+
+		int left = 0;
+		int right = 1;
+		int maxProfit = 0;
+		while (right < arr.length) {
+			if (arr[left] < arr[right]) {
+				maxProfit = Math.max(maxProfit, arr[right] - arr[left]);
+			} else {
+				left = right;
+			}
+			right++;
+		}
+		
+		System.out.println("BuyAndSellStock.approach2()");
+		System.out.println(maxProfit);
 	}
 
 	private static void optimal(int[] arr) {

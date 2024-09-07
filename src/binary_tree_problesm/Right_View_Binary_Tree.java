@@ -1,7 +1,9 @@
 package binary_tree_problesm;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Right_View_Binary_Tree {
 
@@ -38,8 +40,38 @@ public class Right_View_Binary_Tree {
 
 		rightView(node, integers, 0);
 		integers.forEach(System.out::println);
-		
-		
+
+		bfs(node);
+
+	}
+
+	private static void bfs(Tree node) {
+		List<Integer> bfs_response = new ArrayList<Integer>();
+		Queue<Tree> q = new LinkedList<Tree>();
+		q.offer(node);
+
+		while (q.isEmpty() == false) {
+			int lvl = q.size();
+
+			for (int i = 0; i < lvl; i++) {
+				Tree curr = q.poll();
+				if (curr == null) {
+					continue;
+				}
+
+				if (i == 0)
+					bfs_response.add(curr.val);
+				if (curr.right != null)
+					q.add(curr.right);
+				if (curr.left != null)
+					q.add(curr.left);
+			}
+		}
+
+		System.out.println("Right_View_Binary_Tree.bfs()");
+		bfs_response.forEach(s -> {
+			System.out.print(s + "->");
+		});
 
 	}
 

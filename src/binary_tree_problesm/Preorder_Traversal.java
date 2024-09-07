@@ -17,29 +17,8 @@ public class Preorder_Traversal {
 		final ArrayList<Integer> inorderNode = new ArrayList<Integer>();
 
 		inorderTraversal(tree, inorderNode);
-		final ArrayList<Integer> iterativeOrder = inorderIterativeSolution(tree);
 
 		inorderNode.forEach(System.out::println);
-
-	}
-
-	private static ArrayList<Integer> inorderIterativeSolution(Tree tree) {
-
-		ArrayList<Integer> res = new ArrayList<Integer>();
-		Stack<Tree> stack = new Stack<Tree>();
-		while (true) {
-
-			if (tree != null) {
-				stack.push(tree);
-				tree = tree.left;
-			} else {
-				if (stack.isEmpty())
-					break;
-				tree = stack.peek();
-			}
-		}
-
-		return res;
 
 	}
 
