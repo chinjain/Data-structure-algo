@@ -14,7 +14,7 @@ public class K_CLosest_point {
 
 	private static int[][] kClosestPoint(int[][] points, int k) {
 		return null;
-
+ 
 	}
 
 }

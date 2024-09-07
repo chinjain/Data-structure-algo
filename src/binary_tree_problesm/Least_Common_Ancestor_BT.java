@@ -31,7 +31,6 @@ public class Least_Common_Ancestor_BT {
 		if (l_node != null && r_nTree != null) {
 			return root;
 		}
-
 		return l_node != null ? l_node : r_nTree;
 	}
 

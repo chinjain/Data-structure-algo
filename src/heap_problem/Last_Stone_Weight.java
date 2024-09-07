@@ -9,7 +9,7 @@ public class Last_Stone_Weight {
 
 		int a[] = { 2, 7, 4, 1 };
 
-		bruteForce(a);
+	 	bruteForce(a);
 		int ans = optimal(a);
 		System.out.println(ans);
 
