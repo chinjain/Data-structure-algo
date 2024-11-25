@@ -14,42 +14,34 @@ public class Find_All_Anagram_String {
 
 		List<Integer> response = new ArrayList<Integer>();
 
-		char[] txt = s.toCharArray();
-		char[] patt = p.toCharArray();
-
-		char[] countP = new char[MAX];
-		char[] countS = new char[MAX];
+		int[] count_p = new int[26];
+		int[] count_s = new int[26];
 
 		for (int i = 0; i < p.length(); i++) {
-			countP[patt[i]]++;
-			countS[txt[i]]++;
+			count_p[p.charAt(i) - 'a']++;
+			count_s[s.charAt(i) - 'a']++;// fill first window in text
 		}
 
 		for (int i = p.length(); i < s.length(); i++) {
-			if (compare(countP, countS)) {
+			if (compare(count_p, count_s)) {
 				response.add(i - p.length());
 			}
 
-			countS[txt[s.charAt(i)]]++;	
+			count_s[s.charAt(i) - 'a']++;
+			count_p[s.charAt(i - p.length() - 'a')]--;
 
-			countP[patt[s.charAt(i - p.length())]]--;
+		
 		}
-		
-		if(compare(countP, countS)) {
-			response.add(s.length() - p.length());
-		}
-		
-		
-		response.forEach(System.out::println);
-		
 
-	}
-
-	public static boolean compare(char[] a1, char[] a2) {
-		for (int i = 0; i < MAX; i++) {
-			if (a1[i] != a2[i])
-				return false;
 		}
-		return true;
+
+
+	public static int compare(int[] a1, int[] a2) {
+		int matchCount = 0;
+		for (int i = 0; i < 26; i++) {
+			if (a1[i] == a2[i])
+				matchCount++;
+		}
+		return matchCount;
 	}
 }

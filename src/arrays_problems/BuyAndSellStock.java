@@ -10,7 +10,8 @@ public class BuyAndSellStock {
 		approach2(arr);
 	}
 
-	private static void approach2(int[] arr) {
+	private static void approach2(int[] arr)
+	{
 
 		int left = 0;
 		int right = 1;

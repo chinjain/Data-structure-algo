@@ -19,7 +19,8 @@ public class Meeting_Room {
 
 		Interval i1 = new Interval(9, 15);
 		Interval i2 = new Interval(5, 8);
-		List<Interval> intervals = Arrays.asList(i1, i2);
+		Interval i3 = new Interval(3, 7);
+		List<Interval> intervals = Arrays.asList(i1, i2,i3);
 
 		boolean result = meetingRoom(intervals);
 		System.out.println(result);
@@ -29,6 +30,7 @@ public class Meeting_Room {
 	private static boolean meetingRoom(List<Interval> intervals) {
 
 		intervals.sort((a, b) -> Integer.compare(a.start, b.start));
+		
 		for (int i = 1; i < intervals.size(); i++) {
 			if (intervals.get(i).start < intervals.get(i - 1).end) {
 				return false;

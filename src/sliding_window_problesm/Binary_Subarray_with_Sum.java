@@ -1,4 +1,4 @@
-	package sliding_window_problesm;
+package sliding_window_problesm;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,13 +15,12 @@ public class Binary_Subarray_with_Sum {
 	}
 
 	private static void maxSubarray(int[] a, int goal) {
-		/*
-		 * 
-		 * We have already solved this problem with Count subarray with given sum here
+		
+		/* 
+		 * We have already solved this problem with Count sub-array with given sum here
 		 * we are going to do the same in Binary Array
-		 * 
-		 * 
 		 */
+		
 
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 		map.put(0, 1);

@@ -13,7 +13,7 @@ public class Permutation_Of_Striing {
 		if (l == r) {
 			System.out.println(s);
 		} else {
-			for (int i = l; l <= r; l++) {
+			for (int i = l; i < r; l++) {
 				s = swap(s, l, i);
 				permute(s, l + 1, r);
 				s = swap(s, l, i);

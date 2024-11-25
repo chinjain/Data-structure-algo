@@ -13,7 +13,7 @@ public class Rotate_Array_By_K {
 		 * 
 		 * Step 2: shift n-k elements to the right 
 		 * 
-		 * Step 3: copy the element from the temp to main array
+		 * Step 3: copy the element from the temp to main array 
 		 * 
 		 * 
 		 */

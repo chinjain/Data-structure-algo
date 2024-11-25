@@ -2,7 +2,7 @@ package arrays_problems;
 
 import java.util.Arrays;
 
-public class Duplicate_N_1_Integer {
+public class Duplicate_N_1_Integer{
 
 	public static void main(String[] args) {
 
@@ -39,4 +39,6 @@ public class Duplicate_N_1_Integer {
 			}
 		}
 	}
+
+	
 }
