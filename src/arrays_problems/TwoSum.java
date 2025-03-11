@@ -8,14 +8,14 @@ public class TwoSum {
 	public static void main(String[] args) {
 
 		int n = 5;
-		int[] arr = { 2, 6, 5, 8, 11 };
+		int[] arr = { 2,6 , 5, 8, 11 };
 		int target = 14;
 		betterApproach(arr, n, target);
 
 		optimalApproach2Pointer(arr, n, target);
 	}
 
-	private static void optimalApproach2Pointer(int[] arr, int n, int target) {
+	private static void optimalApproach2Pointer(int[]  arr, int n, int target) {
 		int l = 0;
 		int r = n - 1;
 

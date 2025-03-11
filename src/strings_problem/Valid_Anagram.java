@@ -1,13 +1,29 @@
 package strings_problem;
 
+import java.util.stream.Collectors;
+
 public class Valid_Anagram {
 
 	public static void main(String[] args) {
 
 		String s = "anagram", t = "nagaram";
 
-		bruteForce(s, t);
-		betterOptimal(s, t);
+//		bruteForce(s, t);
+//		betterOptimal(s, t);
+		java8Appraoch(s,t);
+
+	}
+
+	private static void java8Appraoch(String s, String t) {
+
+		if(s.length() != t.length()){
+			System.out.println("Not anagram");
+		}
+
+		String sorrtedS = s.chars().sorted().mapToObj(c -> (char)c).map(String::valueOf).collect(Collectors.joining());
+		String sortedT = t.chars().sorted().mapToObj(c -> (char)c).map(String::valueOf).collect(Collectors.joining());
+
+		System.out.println(sorrtedS.equals(sortedT));
 
 	}
 

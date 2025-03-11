@@ -37,6 +37,9 @@ public class ReverseLinkedList {
 	}
 
 	private static void bruteForceApproach(Node head) {
+		/*
+		Here we are printing the values of list in reverse order but the list will be same and it will not be reversed
+		 */
 		Node temp = head;
 
 		Stack<Integer> stack = new Stack<Integer>();

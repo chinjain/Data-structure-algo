@@ -6,6 +6,10 @@ public class Max_Path_Sum {
 
 	public static void main(String[] args) {
 
+
+		// Not a valid approach it will failed the test cases.
+
+
 		Tree root = new Tree(50);
 		root.left = new Tree(25);
 		root.right = new Tree(75);
@@ -27,16 +31,21 @@ public class Max_Path_Sum {
 	}
 
 	private static int maxPathSum(Tree root) {
-		if (root == null) {
+	//same as Diameter problem changes in call of left and right
+
+		if(root == null)
 			return 0;
-		}
 
-		int left = Math.max(maxPathSum(root.left), 0);
-		int right = Math.max(maxPathSum(root.right), 0);
+		int left = Math.
+				max(maxPathSum(root.left),0);
 
-		max = Math.max(left + right + root.val, max);
+		int right = Math.max(maxPathSum(root.right),0) ;
 
-		return root.val + Math.max(left, right);
+		max = Math.max(right+left+root.val,max);
+
+		return root.val + Math.max(left,right);
+
+
 	}
 
 }

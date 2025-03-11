@@ -5,7 +5,7 @@ public class MaxProductSubarray {
 	public static void main(String[] args) {
 
 		// int arr[] = { 1, -2, -3, 0, 7, -8, -2 };
-		int arr[] = { 2, 5, 6, -1, -2, -4, 0, 0, 0 };
+		int[] arr = { 2, 5, 6, -1, -2, -4, 0, 0, 0 };
 		bruteForce(arr);
 		kadaneAlgorithm(arr);
 		FinalOptimalApproach(arr);

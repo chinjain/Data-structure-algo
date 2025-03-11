@@ -11,7 +11,8 @@ public class Add_Two_Numbers_Linked_List {
 		Node l2 = new Node(4);
 		l2.next = new Node(6);
 		l2.next.next = new Node(5);
-		
+
+		// sum each node of linked list val.
 		getSumOfLinkedList(l1,l2);
 
 	}

@@ -22,7 +22,7 @@ public class LongestSubstringWithoutRepeating {
 		
 		int l = 0;
 		int ans = Integer.MIN_VALUE;
-		Set<Character> set = new HashSet<Character>();
+		Set<Character> set = new HashSet<>();
 		
 		for(int r = 0; r < str.length(); r++) {
 			if(set.contains(str.charAt(r))) {
@@ -60,7 +60,7 @@ public class LongestSubstringWithoutRepeating {
 	}
 
 	private static boolean allUnique(String str, int i, int j) {
-		HashSet<Character> characters = new HashSet<Character>();
+		HashSet<Character> characters = new HashSet<>();
 
 		for (int start = i; start < j; start++) {
 			char ch = str.charAt(start);
@@ -80,7 +80,7 @@ public class LongestSubstringWithoutRepeating {
 		int j = 0;
 
 		int len = str.length();
-		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		Map<Character, Integer> map = new HashMap<>();
 
 		while (i < len) {
 
@@ -112,12 +112,7 @@ public class LongestSubstringWithoutRepeating {
 					continue;
 				}
 			}
-
-			if (f1 == false && f2 == false) {
-				break;
-			}
-
-		}
+        }
 
 		System.out.println("LongestSubstringWithoutRepeating.longestSubstring()");
 		System.out.println(ans);

@@ -1,9 +1,7 @@
 package arrays_problems;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 public class Next_Permutation {
 
@@ -20,7 +18,7 @@ public class Next_Permutation {
 		 * 
 		 */
 
-		int arr[] = { 1, 3, 2 };
+		int[] arr = { 1, 3, 2 };
 
 		bruteforce_1(arr);
 		optimal(arr);

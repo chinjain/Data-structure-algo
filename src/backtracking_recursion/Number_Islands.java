@@ -4,7 +4,10 @@ public class Number_Islands {
 
 	public static void main(String[] args) {
 
-		char[][] grid = { { '1', '1', '0', '0', '0' }, { '1', '1', '0', '0', '0' }, { '0', '0', '1', '0', '0' },
+		char[][] grid = {
+				{ '1', '1', '0', '0', '0' },
+				{ '1', '1', '0', '0', '0' },
+				{ '0', '0', '1', '0', '0' },
 				{ '0', '0', '0', '1', '1' } };
 
 		int islands = numIslands(grid);
@@ -44,7 +47,6 @@ public class Number_Islands {
 		search(grid, i - 1, j);
 		search(grid, i, j + 1);
 		search(grid, i, j - 1);
-		return;
 
 	}
 

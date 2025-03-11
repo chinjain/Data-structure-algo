@@ -4,14 +4,14 @@ public class BuyAndSellStock {
 
 	public static void main(String[] args) {
 
-		int arr[] = { 7, 1, 5, 3, 6, 4 };
+		int[] arr = { 7, 1, 5, 3, 6, 4 };
 		brute(arr);
 		optimal(arr);
 		approach2(arr);
 	}
 
 	private static void approach2(int[] arr)
-	{
+	{ 
 
 		int left = 0;
 		int right = 1;

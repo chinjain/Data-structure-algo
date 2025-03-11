@@ -6,7 +6,7 @@ public class Duplicate_N_1_Integer{
 
 	public static void main(String[] args) {
 
-		int arr[] = { 1, 3, 4, 2, 3 };
+		int[] arr = { 1, 3, 4, 2, 3 };
 		bruteForce(arr, arr.length);
 		optimal(arr, arr.length);
 

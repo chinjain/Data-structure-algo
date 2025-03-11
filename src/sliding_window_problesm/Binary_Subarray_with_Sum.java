@@ -7,6 +7,10 @@ public class Binary_Subarray_with_Sum {
 
 	public static void main(String[] args) {
 
+		/*
+		Need to find the sum of window where value is equals to the goal or value is K
+		 */
+
 		int[] a = { 1, 0, 1, 0, 1 };
 		int goal = 2;
 

@@ -11,7 +11,7 @@ public class N_Queen_Problem {
 		 * 
 		 */
 		
-		backtrack();
+//		backtrack(); 
 	}
 
 }

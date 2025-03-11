@@ -15,8 +15,7 @@ public class Check_BinaryTree_Is_Balanced {
 		root.right = new Tree(75);
 		root.left.left = new Tree(12);
 		root.left.right = new Tree(37);
-		root.left.right.left = new Tree(30);
-		root.left.right.right = new Tree(40);
+        root.left.right.right = new Tree(40);
 		root.left.right.left = new Tree(30);
 		root.right.left = new Tree(62);
 		root.right.right = new Tree(87);

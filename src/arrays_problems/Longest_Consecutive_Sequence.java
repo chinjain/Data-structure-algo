@@ -14,11 +14,11 @@ public class Longest_Consecutive_Sequence {
 	private static void LongestSuccesive(int[] a) {
 
 		int longest = 1;
-		Set<Integer> set = new HashSet<Integer>();
+		Set<Integer> set = new HashSet<>();
 
-		for (int i = 0; i < a.length; i++) {
-			set.add(a[i]);
-		}
+        for (int j : a) {
+            set.add(j);
+        }
 
 		for (int it : set) {
 			if (!set.contains(it - 1)) {
@@ -45,18 +45,18 @@ public class Longest_Consecutive_Sequence {
 		int n = a.length;
 		int longest = 1;
 
-		for (int i = 0; i < a.length; i++) {
-			int x = a[i];
-			int cnt = 1;
+        for (int j : a) {
+            int x = j;
+            int cnt = 1;
 
-			while (linearSearch(a, x + 1)) {
-				x += 1;
-				cnt += 1;
-			}
+            while (linearSearch(a, x + 1)) {
+                x += 1;
+                cnt += 1;
+            }
 
-			longest = Math.max(longest, cnt);
+            longest = Math.max(longest, cnt);
 
-		}
+        }
 
 		System.out.println("Longest_Consecutive_Sequence.bruteForce()");
 		System.out.println(longest);

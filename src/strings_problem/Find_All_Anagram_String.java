@@ -30,18 +30,15 @@ public class Find_All_Anagram_String {
 			count_s[s.charAt(i) - 'a']++;
 			count_p[s.charAt(i - p.length() - 'a')]--;
 
-		
 		}
 
-		}
+	}
 
-
-	public static int compare(int[] a1, int[] a2) {
-		int matchCount = 0;
+	public static boolean compare(int[] a1, int[] a2) {
 		for (int i = 0; i < 26; i++) {
-			if (a1[i] == a2[i])
-				matchCount++;
+			if (a1[i] != a2[i])
+				return false;
 		}
-		return matchCount;
+		return true;
 	}
 }
