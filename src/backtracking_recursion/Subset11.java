@@ -8,16 +8,17 @@ public class Subset11 {
 
 	// Need to ignore Duplicate
 
+
+
 	public static void main(String[] args) {
-		int arr[] = { 1, 2, 2 };
+		int[] arr = { 1, 2, 2 };
 
 		List<List<Integer>> list = new ArrayList<List<Integer>>();
 		Arrays.sort(arr);
+
 		backtrack(0, arr, new ArrayList<>(), list);
 
-		list.stream().forEach(s -> {
-			System.out.println(s);
-		});
+		list.forEach(System.out::println);
 	}
 
 	private static void backtrack(int id, int[] arr, ArrayList temp, List<List<Integer>> list) {

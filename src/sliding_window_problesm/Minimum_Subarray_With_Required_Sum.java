@@ -4,7 +4,7 @@ public class Minimum_Subarray_With_Required_Sum {
 
 	public static void main(String[] args) {
 
-		int arr[] = { 1, 4, 45, 6, 10, 19 };
+		int[] arr = { 1, 4, 45, 6, 10, 19 };
 		int x = 51;
 
 		bruteForce(arr, x);

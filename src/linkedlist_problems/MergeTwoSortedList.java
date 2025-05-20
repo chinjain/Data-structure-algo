@@ -13,7 +13,7 @@ public class MergeTwoSortedList {
 		l2.next.next.next = new Node(8);
 		l2.next.next.next.next = new Node(10);
 
-		// bruteForcapproach(l1, l2);
+		 bruteForcapproach(l1, l2);
 		withoutUsingExtraSpaceOptimal(l1, l2);
 
 	}
@@ -25,8 +25,6 @@ public class MergeTwoSortedList {
 			l1 = l2;
 			l2 = temp;
 		}
-
-		Node resp = l1;
 
 		while (l1 != null && l2 != null) {
 			Node tmp = null;

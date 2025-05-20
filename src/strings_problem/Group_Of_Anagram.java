@@ -31,7 +31,7 @@ public class Group_Of_Anagram {
 
 		approach_1(strs, lists);
 
-		lists.stream().forEach((s) -> System.out.println(s));
+		lists.forEach(System.out::println);
 
 	}
 
@@ -41,7 +41,7 @@ public class Group_Of_Anagram {
 			return;
 		}
 
-		Map<String, List<String>> map = new HashMap<String, List<String>>();
+		Map<String, List<String>> map = new HashMap<>();
 
 		for (String s : strs) {
 			char[] ch = s.toCharArray();
@@ -50,7 +50,7 @@ public class Group_Of_Anagram {
 			String key = new String(ch);
 
 			if (!map.containsKey(key)) {
-				map.put(key, new ArrayList<String>());
+				map.put(key, new ArrayList<>());
 			}
 
 			map.get(key).add(s);

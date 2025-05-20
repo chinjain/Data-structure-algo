@@ -40,10 +40,10 @@ public class BuyAndSellStock {
 		 */
 		int max = Integer.MIN_VALUE;
 		int min = Integer.MAX_VALUE;
-		for (int i = 0; i < arr.length; i++) {
-			min = Math.min(min, arr[i]);
-			max = Math.max(max, arr[i] - min);
-		}
+        for (int j : arr) {
+            min = Math.min(min, j);
+            max = Math.max(max, j - min);
+        }
 		System.out.println("BuyAndSellStock.optimal()");
 		System.out.println(max);
 	}

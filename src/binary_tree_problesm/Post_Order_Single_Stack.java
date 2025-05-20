@@ -46,7 +46,7 @@ public class Post_Order_Single_Stack {
 		root.right.right.left = new Tree(9);
 		root.right.right.right = new Tree(10);
 
-		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> list;
 
 		list = postorder(root);
 		System.out.println(list);
