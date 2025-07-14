@@ -9,7 +9,7 @@ public class LongestSubstringWithoutRepeating {
 
 	public static void main(String[] args) {
 
-		String str = "pwwkew";
+		String str = "abcdefabcbb";
 
 		longestSubstring(str);
 		bruteforce(str);
@@ -26,7 +26,7 @@ public class LongestSubstringWithoutRepeating {
 		
 		for(int r = 0; r < str.length(); r++) {
 			if(set.contains(str.charAt(r))) {
-				while(l < r && set.contains(str.charAt(r))) {
+				while(l < r) {
 					set.remove(str.charAt(l++));
 				}
 			}

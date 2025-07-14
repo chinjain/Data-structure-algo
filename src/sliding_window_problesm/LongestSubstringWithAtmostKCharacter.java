@@ -15,7 +15,7 @@ public class LongestSubstringWithAtmostKCharacter {
 
 		int left = 0;
 		int kLength = 0;
-		Map<Character, Integer> count = new HashMap<Character, Integer>();
+		Map<Character, Integer> count = new HashMap<>();
 
 		for (int right = 0; right < s.length(); right++) {
 			char r_char = s.charAt(right);
