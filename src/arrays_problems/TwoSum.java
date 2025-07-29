@@ -15,6 +15,11 @@ public class TwoSum {
 		optimalApproach2Pointer(arr, n, target);
 	}
 
+	/*
+			TimeComplexity : O(n)
+			SpaceComplexity : O(1) as we are doing it in constant time !!
+	 */
+
 	private static void optimalApproach2Pointer(int[]  arr, int n, int target) {
 		int l = 0;
 		int r = n - 1;
@@ -31,7 +36,6 @@ public class TwoSum {
 				r--;
 			}
 		}
-
 	}
 
 	private static void betterApproach(int[] arr, int n, int target) {

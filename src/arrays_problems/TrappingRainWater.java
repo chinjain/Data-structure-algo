@@ -27,29 +27,22 @@ public class TrappingRainWater {
 
 	private static void twoPointerApproach(int[] arr) {
 		int n = arr.length;
-		int left = 0, right = n - 1;
+		int l = 0, r = n - 1;
 		int res = 0;
-		int maxLeft = 0, maxRight = 0;
+		int leftMax = arr[l], rightMax = arr[r];
 
-		while (left < right) {
-			if (arr[left] <= arr[right]) {
-				if (arr[left] > maxLeft) {
-					maxLeft = arr[left];
-				} else {
-					res += (maxLeft - arr[left]);
-				}
-				left++;
-			} else {
-				if (maxRight < arr[right]) {
-					maxRight = arr[right];
-				} else {
-					res += (maxRight - arr[right]);
-				}
-
-				--right;
+		while (l < r){
+			if(leftMax < rightMax){
+				l++;
+				leftMax = Math.max(leftMax, arr[l]);
+				res += leftMax - arr[l];
+			}else{
+				r--;
+				rightMax = Math.max(rightMax, arr[r]);
+				res += rightMax - arr[r];
 			}
-
 		}
+
 
 		System.out.println("TrappingRainWater.twoPointerApproach()");
 		System.out.println(res);
