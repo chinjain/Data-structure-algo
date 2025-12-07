@@ -83,12 +83,7 @@ public class LongestSubstringWithoutRepeating {
 		Map<Character, Integer> map = new HashMap<>();
 
 		while (i < len) {
-
-			boolean f1 = false;
-			boolean f2 = false;
-
 			while (i < len) {
-				f1 = true;
 				char ch = str.charAt(i);
 				i++;
 				map.put(ch, map.getOrDefault(ch, 0) + 1);
@@ -99,9 +94,7 @@ public class LongestSubstringWithoutRepeating {
 					ans = Math.max(ans, i - j);
 				}
 			}
-
 			while (j < i) {
-				f2 = true;
 				char ch = str.charAt(j);
 				j++;
 
@@ -113,10 +106,7 @@ public class LongestSubstringWithoutRepeating {
 				}
 			}
         }
-
 		System.out.println("LongestSubstringWithoutRepeating.longestSubstring()");
 		System.out.println(ans);
-
 	}
-
 }

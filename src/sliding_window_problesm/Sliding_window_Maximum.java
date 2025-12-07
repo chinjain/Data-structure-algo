@@ -17,22 +17,19 @@ public class Sliding_window_Maximum {
 	}
 
 	private static void deque_approach(int[] num, int k) {
-		int res[] = new int[num.length - k + 1];
+		int[] res = new int[num.length - k + 1];
 		int n = num.length;
 
-		Deque<Integer> deque = new ArrayDeque<Integer>();
+		Deque<Integer> deque = new ArrayDeque<>();
 		for (int i = 0; i < n; i++) {
 			// check for the window weather it's in the range or not
 			if (!deque.isEmpty() && deque.peek() < i - k + 1) {
 				deque.poll();
 			}
-
 			while (!deque.isEmpty() && num[deque.peekLast()] < num[i]) {
 				deque.pollLast();
 			}
-
 			deque.offer(i);
-
 			if (i >= k - 1) {
 				res[i - k + 1] = num[deque.peek()];
 			}

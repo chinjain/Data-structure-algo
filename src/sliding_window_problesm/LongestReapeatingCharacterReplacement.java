@@ -10,23 +10,20 @@ public class LongestReapeatingCharacterReplacement {
 		String s = "AAABBABABABBBC";
 		int k = 3;
 
-		solution(s, k);
+//		solution(s, k);
 		usingMap(s, k);
 
 	}
 
 	private static void usingMap(String s, int k) {
 
-		Map<Character, Integer> map = new HashMap<Character, Integer>();
+		Map<Character, Integer> map = new HashMap<>();
 
 		int l = 0;
 		int maxRepeat = 0;
 		int res = 0;
 		for (int r = 0; r < s.length(); r++) {
 			char ch = s.charAt(r);
-			if (!map.containsKey(ch)) {
-				map.put(ch, 0);
-			}
 
 			map.put(ch, map.getOrDefault(ch, 0) + 1);
 			maxRepeat = Math.max(maxRepeat, map.get(ch));
@@ -68,7 +65,7 @@ public class LongestReapeatingCharacterReplacement {
 				a[s.charAt(left) - 'A']--;
 				left++;
 			}
-			res = Math.max(max, right - left + 1);
+			res = Math.max(res, right - left + 1);
 		}
 
 		System.out.println("LongestReapeatingCharacterReplacement.solution()");

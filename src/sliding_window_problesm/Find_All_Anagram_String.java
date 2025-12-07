@@ -28,11 +28,9 @@ public class Find_All_Anagram_String {
 		Map<Character, Integer> pattern = new HashMap<Character, Integer>();
 
 		for (int i = 0; i < p.length(); i++) {
-			char ch = p.charAt(i);
-			pattern.put(ch, pattern.getOrDefault(ch, 0) + 1);
-		}
+			char ch_p = p.charAt(i);
+			pattern.put(ch_p, pattern.getOrDefault(ch_p, 0) + 1);
 
-		for (int i = 0; i < p.length(); i++) {
 			char ch = s.charAt(i);
 			source.put(ch, source.getOrDefault(ch, 0) + 1);
 		}
@@ -60,7 +58,7 @@ public class Find_All_Anagram_String {
 
 		}
 
-		if (compare(pattern, source) == true) {
+		if (compare(pattern, source)) {
 			ans.add(j);
 		}
 

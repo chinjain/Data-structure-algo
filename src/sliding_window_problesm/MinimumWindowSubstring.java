@@ -25,9 +25,8 @@ public class MinimumWindowSubstring {
 		String s = "ADOBECODEBANC";
 		String t = "ABC";
 
-		//		mws(s, t);
+				mws(s, t);
 		optimised(s, t);
-
 	}
 
 	private static void optimised(String s, String t) {
@@ -91,8 +90,8 @@ public class MinimumWindowSubstring {
 	private static void mws(String s, String t) {
 		// TODO Auto-generated method stub
 
-		Map<Character, Integer> t_map = new HashMap<Character, Integer>();
-		Map<Character, Integer> s_map = new HashMap<Character, Integer>();
+		Map<Character, Integer> t_map = new HashMap<>();
+		Map<Character, Integer> s_map = new HashMap<>();
 		String ans = "";
 
 		for (char ch : t.toCharArray()) {
@@ -100,7 +99,7 @@ public class MinimumWindowSubstring {
 		}
 
 		int matched = 0;
-		int minLength = t.length();
+		int actualMatch = t.length();
 		int start = 0;
 		int end = 0;
 		while (end < s.length()) {
@@ -108,7 +107,7 @@ public class MinimumWindowSubstring {
 			boolean f1 = false;
 			boolean f2 = false;
 
-			while (end < s.length() && matched < minLength) {
+			while (end < s.length() && matched < actualMatch) {
 				f1 = true;
 
 				char ch = s.charAt(end);
@@ -120,11 +119,11 @@ public class MinimumWindowSubstring {
 
 			}
 
-			while (start < end && matched == minLength) {
+			while (start < end && matched == actualMatch) {
 				f2 = true;
 				String str = s.substring(start, end + 1);
 
-				if (ans.length() == 0 || str.length() < ans.length()) {
+				if (ans.isEmpty() || str.length() < ans.length()) {
 					ans = str;
 				}
 
@@ -141,12 +140,10 @@ public class MinimumWindowSubstring {
 
 			}
 
-			if (f1 == false && f2 == false) {
+			if (!f1 && !f2) {
 				break;
 			}
 		}
-
 		System.out.println(ans);
-
 	}
 }
