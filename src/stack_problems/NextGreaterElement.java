@@ -13,7 +13,7 @@ public class NeztGreaterElement {
 	}
 
 	private static void fromRight(int[] a) {
-		Stack<Integer> st = new Stack<Integer>();
+		Stack<Integer> st = new Stack<>();
 
 		st.push(0);
 		int[] res = new int[a.length];

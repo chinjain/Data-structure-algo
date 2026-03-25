@@ -26,7 +26,7 @@ public class ContaierWithMostWater {
 			}
 		}
 
-		System.out.println("ContaierWithMostWater.optimalApproach()");
+		System.out.println("ContainerWithMostWater.optimalApproach()");
 		System.out.println(max);
 
 	}
@@ -41,7 +41,7 @@ public class ContaierWithMostWater {
 			}
 		}
 
-		System.out.println("ContaierWithMostWater.bruteforceApproach()");
+		System.out.println("ContainerWithMostWater.bruteforceApproach()");
 		System.out.println(max);
 
 	}

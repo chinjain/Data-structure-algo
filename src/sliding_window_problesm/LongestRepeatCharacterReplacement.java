@@ -3,7 +3,7 @@ package sliding_window_problesm;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LongestReapeatingCharacterReplacement {
+public class LongestRepeatCharacterReplacement {
 
 	public static void main(String[] args) {
 
