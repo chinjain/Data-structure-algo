@@ -7,11 +7,9 @@ public class KDistinctCharacterFromStrings {
 
 	public static void main(String[] args) {
 
-		String s = "abbbbbbc";
-		int k = 2;
-
+		String s = "aa";
+		int k = 1;
 		find(s, k);
-
 	}
 
 	private static void find(String s, int k) {
@@ -36,7 +34,6 @@ public class KDistinctCharacterFromStrings {
 					} else {
 						map.put(c, map.get(c) - 1);
 					}
-
 					j++;
 				}
 			}

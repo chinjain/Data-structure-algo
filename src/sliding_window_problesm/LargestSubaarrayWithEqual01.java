@@ -6,7 +6,7 @@ public class LargestSubaarrayWithEqual01 {
 
 	public static void main(String[] args) {
 
-		int arr[] = {1, 0, 0, 1, 0, 1, 1};
+		int[] arr = {1, 0, 0, 1, 0, 1, 1};
 		bruteforce(arr,arr.length);
 		
 		optimal(arr,arr.length);
@@ -19,7 +19,7 @@ public class LargestSubaarrayWithEqual01 {
 		/*
 		 * This problem replicate the longest subarray with 0 sum 
 		 * 
-		 * We will go with the appraoch of PrefixSum & Hashmap
+		 * We will go with the approach of PrefixSum & Hashmap
 		 * 
 		 */
 		

@@ -19,7 +19,7 @@ public class ProductOfArrayExceptItself {
 		System.out.println("ProductOfArrayExceptItself.bruteForce_Approach_2()");
 
 		int mul = 1;
-		int result[] = new int[arr.length];
+		int[] result = new int[arr.length];
 
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] != 0) {

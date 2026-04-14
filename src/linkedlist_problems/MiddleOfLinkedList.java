@@ -19,7 +19,6 @@ public class MiddleOfLinkedList {
 	}
 
 	private static Node findMiddleValue(Node head) {
-
 		if (head == null) {
 			return null;
 		}
@@ -34,5 +33,4 @@ public class MiddleOfLinkedList {
 
 		return slow;	
 	}
-
 }

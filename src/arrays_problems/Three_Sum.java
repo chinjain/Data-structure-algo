@@ -6,10 +6,11 @@ public class Three_Sum {
 
 	public static void main(String[] args) {
 
-		int arr[] = { -1, 0, 1, 2, -1, -4 };
-		bruteForce(arr);
+		int[] arr = { -1, 0, 1, 2, -1, -4 };
+		int k = 2;
+//		bruteForce(arr);
 		optimalApproach(arr);
-		usingSortingApproach(arr);
+//		usingSortingApproach(arr);
 
 	}
 
@@ -78,6 +79,8 @@ public class Three_Sum {
 
 	private static void optimalApproach(int[] arr) {
 
+		Arrays.sort(arr);
+
 		for (int i = 0; i < arr.length; i++) {
 			if (i != 0 && arr[i] == arr[i - 1])
 				continue;
@@ -93,7 +96,7 @@ public class Three_Sum {
 				} else if (sum > 0) {
 					k--;
 				} else {
-					System.out.println(arr[i] + "" + arr[j] + "" + arr[k]);
+					System.out.println(arr[i] + " " + arr[j] + " " + arr[k]);
 					j++;
 					--k;
 				}
@@ -104,13 +107,14 @@ public class Three_Sum {
 
 	private static void bruteForce(int[] arr) {
 
+		int val = 3;
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = i + 1; j < arr.length; j++) {
 				for (int k = j + 1; k < arr.length; k++) {
 
-					if (arr[i] + arr[j] + arr[k] == 0) {
+					if (arr[i] + arr[j] + arr[k] == val) {
 						System.out.println("Three_Sum.bruteForce()");
-						System.out.println(arr[i] + " " + arr[j] + " " + arr[k]);
+						System.out.println(i + " " + j + " " + k);
 					}
 
 				}

@@ -40,6 +40,7 @@ public class Rotate_Array_By_K {
 
 		int[] temp = new int[k];
 
+		// last k elements in temp array
 		for (int i = n - k; i < n; i++) {
 			temp[i - n + k] = newArr[i];
 		}

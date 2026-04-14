@@ -2,7 +2,7 @@ package backtracking_recursion;
 
 public class GenerateBinaryString {
     public static void main(String[] args) {
-        int n = 4;
+        int n = 2;
 
         int[] arr = new int[n];
 
@@ -26,7 +26,7 @@ public class GenerateBinaryString {
 
     }
 
-    static void printTheArray(int arr[], int n)
+    static void printTheArray(int[] arr, int n)
     {
         for (int i = 0; i < n; i++)
         {

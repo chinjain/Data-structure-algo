@@ -9,47 +9,60 @@ public class ReverseEachWord {
 	public static void main(String[] args) {
 
 		String s = "Hello World";
-		//		bruteForce(s);
-		externalSpachSolution(s);
-		reverseStringWordWithoutchangingTheOrder(s);
-		wordReverse(s);
+//		externalSpachSolution(s);
+		naive(s);
+		System.out.println("Output: " + reverseEachWord(s));
 
 	}
 
-	private static void wordReverse(String s) {
+	static String reverseEachWord(String s) {
 
-		String[] str = s.split(" ");
-		StringBuffer sb = new StringBuffer();
+		char[] ch = s.toCharArray();
+		int start = 0;
+		int n = ch.length;
 
-		for (int i = str.length - 1; i >= 0; --i) {
-			sb.append(str[i] + " ");
+		while (start < n){
+			if(ch[start] == ' '){
+				start++;
+				continue;
+			}
+
+			int end = start;
+
+			while (end < n && ch[end] != ' '){
+				end++;
+			}
+
+			reverse(ch, start, end - 1);
+
+			start = end;
 		}
 
-		System.out.println("ReverseEachWord.wordReverse()");
+		return new String(ch);
+	}
+
+	private static void naive(String s) {
+		String[] strings = s.split(" ");
+		StringBuilder sb = new StringBuilder();
+
+		for(int i = 0; i < strings.length; i++){
+			String reversStr = reverse(strings[i]);
+			sb.append(reversStr).append(" ");
+		}
+
 		System.out.println(sb.toString());
 
 	}
-
-	private static void reverseStringWordWithoutchangingTheOrder(String s) {
-
-		Queue<String> queue = new LinkedList<String>();
-		StringBuilder response = new StringBuilder();
-
-		String[] str = s.split(" ");
-
-		int i = str.length - 1;
-		while (i >= 0) {
-			queue.add(str[i]);
-			i--;
+	static void reverse(char[] chars, int left, int right) {
+		while (left < right) {
+			char temp = chars[left];
+			chars[left] = chars[right];
+			chars[right] = temp;
+			left++;
+			right--;
 		}
-
-		while (!queue.isEmpty()) {
-			response.append(queue.poll() + " ");
-		}
-
-		System.out.println(response);
-
 	}
+
 
 	private static void externalSpachSolution(String s) {
 		Stack<Character> st = new Stack<Character>();
@@ -75,13 +88,17 @@ public class ReverseEachWord {
 
 	}
 
-	private static void reverse(char[] s, int start, int end) {
-		while (start < end) {
-			char temp = s[start];
-			s[start] = s[end];
-			s[end] = temp;
-			end--;
-			start++;
+	private static String reverse(String s) {
+		int l = 0, r = s.length() - 1;
+		char[] ch = s.toCharArray();
+		while (l < r) {
+			char temp = ch[l];
+			ch[l] = ch[r];
+			ch[r] = temp;
+			l++;
+			r--;
 		}
+
+		return new String(ch);
 	}
 }

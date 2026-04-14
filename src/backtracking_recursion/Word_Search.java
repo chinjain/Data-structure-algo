@@ -30,25 +30,27 @@ public class Word_Search {
 
 	}
 
-	private static boolean check(char[][] board, String word, int i, int j, int curr) {
+	private static boolean check(char[][] board, String word, int i, int j, int idx) {
 
-		if (i < 0 || j > 0 || i >= board.length || j >= board[0].length || board[i][j] != word.charAt(curr)) {
+		if(idx == word.length()){
+			return true;
+		}
+
+		if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] != word.charAt(idx)) {
 			return false;
 		}
 
-		boolean exist = false;
-		if (board[i][j] == word.charAt(curr)) {
+		char temp = board[i][j];
+		board[i][j] = '#';
 
-			board[i][j] += 100;
+		boolean found = check(board, word, i+1,j, idx + 1) ||
+				check(board, word, i - 1, j, idx + 1) ||
+				check(board, word, i, j+1, idx + 1) ||
+				check(board, word, i, j - 1, idx + 1);
 
-			exist = check(board, word, i + 1, j, curr + 1) || check(board, word, i - 1, j, curr + 1)
-					|| check(board, word, i, j + 1, curr + 1) || check(board, word, i, j - 1, curr + 1);
+		board[i][j] = temp;
 
-			board[i][j] -= 100;
-
-		}
-
-		return exist;
+		return found;
 
 	}
 

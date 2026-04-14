@@ -1,5 +1,8 @@
 package linkedlist_problems;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Reorder_List {
 
 	public static void main(String[] args) {
@@ -12,48 +15,82 @@ public class Reorder_List {
 		head.next.next.next.next.next = new Node(5);
 		head.next.next.next.next.next.next = new Node(6);
 
+//		brute(head);
 		reorder(head);
+
+	}
+
+	static void brute(Node head){
+		List<Node> nodes = new ArrayList<>();
+		Node curr = head;
+
+		while (curr != null){
+			nodes.add(curr);
+			curr = curr.next;
+		}
+
+		int left = 0;
+		int right = nodes.size() - 1;
+
+
+		while (left < right){
+			nodes.get(left).next = nodes.get(right);
+			left++;
+
+			if(left == right)
+				break;
+
+			nodes.get(right).next = nodes.get(left);
+			right--;
+		}
+
+		nodes.get(left).next = null;
+
 	}
 
 	private static void reorder(Node head) {
+		if(head == null || head.next == null)
+			return;
 
 		Node slow = head;
 		Node fast = head;
 
-		while (fast != null && fast.next != null) {
+		//mid
+		while (fast.next != null && fast.next.next != null){
 			slow = slow.next;
 			fast = fast.next.next;
 		}
 
-		Node second = slow.next;
-		Node prev = slow.next = null;
+		Node curr = slow.next;
+		slow.next = null;
+		Node prev = null;
 
-		while (second != null) {
-			Node temp = second.next;
-			second.next = prev;
-			prev = second;
-			second = temp;
+		// reverse the second half
+		while (curr != null){
+			Node temp = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = temp;
 		}
 
-		second = prev;
 		Node first = head;
+		Node second = prev;
 
-		while (second != null) {
+		while (second != null){
 			Node t1 = first.next;
 			Node t2 = second.next;
 
 			first.next = second;
 			second.next = t1;
+
 			first = t1;
 			second = t2;
-
 		}
 
-		while (head != null) {
-			System.out.print(head.val + " ");
+		while (head != null){
+			System.out.print(head.val + "->");
 			head = head.next;
 		}
 
 	}
-
 }

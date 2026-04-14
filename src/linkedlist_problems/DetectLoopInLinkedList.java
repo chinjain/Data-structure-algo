@@ -22,7 +22,30 @@ public class DetectLoopInLinkedList {
 
 		bruteForce(head);
 		optimalApproach(head);
+//		approach2(head);
 
+	}
+
+	static void approach2(Node head){
+		int counter = 0;
+
+		Node temp = head;
+		while (temp != null){
+			counter++;
+			temp = temp.next;
+		}
+
+		boolean[] visit = new boolean[counter];
+
+		while (head != null){
+			if(!visit[head.val]){
+				visit[head.val] = true;
+				head = head.next;
+			}else{
+				System.out.println("cycle detects at :" + head.val);
+				break;
+			}
+		}
 	}
 
 	private static void optimalApproach(Node head) {
@@ -30,14 +53,15 @@ public class DetectLoopInLinkedList {
 		Node slow = head;
 		Node fast = head;
 
-		while (fast.next != null && fast.next != slow) {
+		while (fast != null && fast.next != null) {
 			fast = fast.next.next;
 			slow = slow.next;
-		}
-		
-		System.out.println("DetectLoopInLinkedList.optimalApproach()");
-		System.out.println(slow.val);
 
+			if(slow == fast){
+				System.out.println("Cycle detected at: " + slow.next.val);
+				return;
+			}
+		}
 	}
 
 	private static void bruteForce(Node head) {

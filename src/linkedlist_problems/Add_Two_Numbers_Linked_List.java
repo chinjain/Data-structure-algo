@@ -4,9 +4,9 @@ public class Add_Two_Numbers_Linked_List {
 
 	public static void main(String[] args) {
 
-		Node l1 = new Node(3);
+		Node l1 = new Node(6);
 		l1.next = new Node(4);
-		l1.next.next = new Node(2);
+		l1.next.next = new Node(8);
 
 		Node l2 = new Node(4);
 		l2.next = new Node(6);

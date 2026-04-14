@@ -1,3 +1,4 @@
+package queue_prob;
 
 public class Queue {
 
@@ -14,7 +15,7 @@ public class Queue {
 
 	public void push(int element) {
 		if (size == maxSize) {
-			System.out.println("Queue is full");
+			System.out.println("queue_prob.Queue is full");
 			System.exit(1);
 		}
 
@@ -30,7 +31,7 @@ public class Queue {
 
 	public int dequeue() {
 		if (start == -1) {
-			System.out.println("Queue is empty");
+			System.out.println("queue_prob.Queue is empty");
 			System.exit(1);
 		}
 

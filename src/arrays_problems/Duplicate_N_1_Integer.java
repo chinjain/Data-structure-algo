@@ -16,7 +16,7 @@ public class Duplicate_N_1_Integer{
 		
 		System.out.println("Duplicate_N_1_Integer.optimal()");
 
-		int freq[] = new int[length + 1];
+		int[] freq = new int[length + 1];
 
 		for (int i = 0; i < length; i++) {
 			if (freq[arr[i]] == 0) {

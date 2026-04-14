@@ -23,9 +23,9 @@ public class Find_All_Anagram_String {
 			return Collections.EMPTY_LIST;
 		}
 
-		List<Integer> ans = new ArrayList<Integer>();
-		Map<Character, Integer> source = new HashMap<Character, Integer>();
-		Map<Character, Integer> pattern = new HashMap<Character, Integer>();
+		List<Integer> ans = new ArrayList<>();
+		Map<Character, Integer> source = new HashMap<>();
+		Map<Character, Integer> pattern = new HashMap<>();
 
 		for (int i = 0; i < p.length(); i++) {
 			char ch_p = p.charAt(i);

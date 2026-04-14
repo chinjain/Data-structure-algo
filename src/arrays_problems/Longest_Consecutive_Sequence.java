@@ -41,8 +41,6 @@ public class Longest_Consecutive_Sequence {
 	}
 
 	private static void bruteForce(int[] a) {
-
-		int n = a.length;
 		int longest = 1;
 
         for (int j : a) {

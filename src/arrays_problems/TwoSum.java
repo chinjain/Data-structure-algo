@@ -8,11 +8,25 @@ public class TwoSum {
 	public static void main(String[] args) {
 
 		int n = 5;
-		int[] arr = { 2,6 , 5, 8, 11 };
+		int[] arr = { 2, 6, 5, 8, 11 };
 		int target = 14;
 		betterApproach(arr, n, target);
 
 		optimalApproach2Pointer(arr, n, target);
+
+
+		// brut force
+
+		for(int  i = 0; i < arr.length; i++){
+			for(int j = 0; j < arr.length; j++){
+				if(i == j) continue;
+
+				if(arr[i] + arr[j] == target){
+					System.out.println(i + " " + j);
+					break;
+				}
+			}
+		}
 	}
 
 	/*

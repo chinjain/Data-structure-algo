@@ -22,13 +22,9 @@ public class Rat_Maze_Problems {
 			solve(0, 0, n, m, ans, "", visit);
 		}
 
-		if (ans.size() > 0) {
-			ans.forEach(str -> {
-				System.out.println(str);
-			});
-		}
-
-		else {
+		if (!ans.isEmpty()) {
+			ans.forEach(System.out::println);
+		} else {
 			System.out.println("-1");
 		}
 	}
@@ -47,6 +43,11 @@ public class Rat_Maze_Problems {
 			solve(i + 1, j, n, m, ans, move + "D", visit);
 		}
 
+		//up
+		if (i - 1 >= 0 && m[i - 1][j] == 1 && visit[i - 1][j] == 0) {
+			solve(i - 1, j, n, m, ans, move + "U", visit);
+		}
+
 		// left
 		if (j - 1 >= 0 && m[i][j - 1] == 1 && visit[i][j - 1] == 0) {
 			solve(i, j - 1, n, m, ans, move + "L", visit);
@@ -54,10 +55,6 @@ public class Rat_Maze_Problems {
 		// right
 		if (j + 1 < n && visit[i][j + 1] == 0 && m[i][j + 1] == 1) {
 			solve(i, j + 1, n, m, ans, move + "R", visit);
-		}
-		// up
-		if (i - 1 >= 0 && m[i - 1][j] == 1 && visit[i - 1][j] == 0) {
-			solve(i - 1, j, n, m, ans, move + "U", visit);
 		}
 		visit[i][j] = 0;
 

@@ -4,34 +4,27 @@ public class Permutation_Of_Striing {
 
 	public static void main(String[] args) {
 
-		String s = "ABC";
-		permute(s, 0, s.length() - 1);
+		String s = "ABCD";
+		permute(s.toCharArray(), 0);
 	}
 
-	private static void permute(String s, int l, int r) {
+	private static void permute(char[] chars, int idx) {
+		if(idx == chars.length){
+			System.out.println(String.valueOf(chars));
+			return;
+		}
 
-		if (l == r) {
-			System.out.println(s);
-		} else {
-			for (int i = l; i < r; l++) {
-				s = swap(s, l, i);
-				permute(s, l + 1, r);
-				s = swap(s, l, i);
-			}
+		for(int i = idx; i < chars.length; i++){
+			swap(chars,idx, i);
+			permute(chars,idx + 1);
+			swap(chars,idx, i);
 		}
 	}
 
-	public static String swap(String s, int l, int r) {
-		char temp;
-		char[] charArray = s.toCharArray();
-
-		temp = charArray[l];
-		charArray[l] = charArray[r];
-		charArray[r] = temp;
-		l++;
-		r--;
-
-		return String.valueOf(charArray);
+	public static void swap(char[] s, int l, int r) {
+		char temp = s[l];
+		s[l] = s[r];
+		s[r] = temp;
 	}
 
 }

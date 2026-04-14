@@ -42,7 +42,7 @@ public class Duplicate_Char_String {
 			map.put(ch, map.getOrDefault(ch, 0) + 1);
 		}
 
-		map.entrySet().stream().filter(e -> e.getValue() > 1).map(e -> e.getKey()).forEach(System.out::println);
+		map.entrySet().stream().filter(e -> e.getValue() > 1).map(Map.Entry::getKey).forEach(System.out::println);
 	}
 
 	private static void optimal(String s) {

@@ -6,43 +6,36 @@ import java.util.List;
 public class DFS {
 
 	public static void main(String[] args) {
-
+		int n = 4;
 		ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < n; i++) {
 			adj.add(new ArrayList<>());
 		}
-		adj.get(0).add(2);
-		adj.get(2).add(0);
+		// Adding edges
 		adj.get(0).add(1);
 		adj.get(1).add(0);
-		adj.get(0).add(3);
-		adj.get(3).add(0);
-		adj.get(2).add(4);
-		adj.get(4).add(2);
-		
-		dfsGraph(5, adj);
+
+		adj.get(0).add(2);
+		adj.get(2).add(0);
+
+		adj.get(1).add(3);
+		adj.get(3).add(1);
+
+		boolean[] visited = new boolean[n + 1];
+		System.out.print("DFS Traversal: ");
+		dfs(0, adj, visited);
 
 	}
 
-	private static void dfsGraph(int v, ArrayList<ArrayList<Integer>> adj) {
-		boolean [] visit = new boolean[v + 1];
-		visit[0] = true;
-		
-		List<Integer> ls = new ArrayList<Integer>();
-		dfs(0,visit,adj,ls);
-		
-		ls.stream().forEach(System.out::println);
-		
-	}
 
-	private static void dfs(int node, boolean[] visit, ArrayList<ArrayList<Integer>> adj, List<Integer> ls) {
+	private static void dfs(int start, ArrayList<ArrayList<Integer>> adj, boolean[] visit) {
 		
-		visit[node] = true;
-		ls.add(node);
+		visit[start] = true;
+		System.out.println(start+ " ");
 		
-		for(int it : adj.get(node)) {
-			if(visit[it] == false) {
-				dfs(it, visit, adj, ls);
+		for(int it : adj.get(start)) {
+			if(!visit[it]) {
+				dfs(it, adj,visit);
 			}
 		}
 		

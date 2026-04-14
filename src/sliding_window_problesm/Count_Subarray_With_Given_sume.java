@@ -20,15 +20,15 @@ public class Count_Subarray_With_Given_sume {
 		int ans = 0;
 
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-		int preSum = 0;
+		int sum = 0;
 		map.put(0, 1);
 
-		for (int i = 0; i < arr.length; i++) {
-			preSum += arr[i];
-			int remove = preSum - k;
-			ans += map.getOrDefault(remove, 0);
-			map.put(preSum, map.getOrDefault(preSum, 0) + 1);
-		}
+        for (int j : arr) {
+            sum += j;
+            int remSum = sum - k;
+            ans += map.getOrDefault(remSum, 0);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
 
 		System.out.println("Count_Subarray_With_Given_sume.optimised()");
 		System.out.println(ans);

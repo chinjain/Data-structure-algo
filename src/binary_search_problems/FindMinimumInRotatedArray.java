@@ -10,7 +10,6 @@ public class FindMinimumInRotatedArray {
 
         findMin(arr,lo,hi);
 
-
     }
 
     public static void findMin(int[] arr, int lo, int hi) {

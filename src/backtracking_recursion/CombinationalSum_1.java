@@ -17,19 +17,26 @@ public class CombinationalSum_1 {
 	}
 
 	private static void backtrack_2(int i, int target, int[] arr, List<List<Integer>> list, ArrayList<Integer> temp) {
-		if(i == arr.length){
-			if(target == 0){
-				list.add(new ArrayList<>(temp));
-			}
+
+		if(target == 0){
+			list.add(new ArrayList<>(temp));
 			return;
 		}
 
-		if(arr[i] <= target){
-			temp.add(arr[i]);
-			backtrack_2(i,target - arr[i],arr, list, temp);
-			temp.remove(temp.size() - 1);
+		for(int start = i; start < arr.length; start++){
+			if(arr[start] > target) break;
+
+			temp.add(arr[start]);
+			backtrack_2(start+1, target - arr[start],arr,list,temp);
+			temp.remove(temp.size() -1);
 		}
-		backtrack_2(i + 1, target, arr, list, temp);
+
+//		if(arr[i] <= target){
+//			temp.add(arr[i]);
+//			backtrack_2(i+1,target - arr[i],arr, list, temp);
+//			temp.remove(temp.size() - 1);
+//		}
+//		backtrack_2(i + 1, target, arr, list, temp);
 	}
 
 	private static void backtrack(List<List<Integer>> list, ArrayList<Integer> temp, int[] arr, int idx, int target) {

@@ -33,10 +33,7 @@ public class LongestRepeatCharacterReplacement {
 				map.put(forRemove, map.get(forRemove) - 1);
 				l++;
 			}
-
 			res = Math.max(res, r - l + 1);
-			System.out.println(s.substring(l, r + 1));
-
 		}
 
 		System.out.println("LongestReapeatingCharacterReplacement.usingMap()");
@@ -57,8 +54,8 @@ public class LongestRepeatCharacterReplacement {
 
 			max = Math.max(max, a[ch - 'A']);
 
-			// From the give window we are Subtracting the total or max occurence of one
-			// char and verifing it weather its < then
+			// From the give window we are Subtracting the total or max occurrence of one
+			// char and verifying it weather its < then
 			// k or not if yes then continue otherwise remove the char;
 
 			if (right - left + 1 - max > k) {

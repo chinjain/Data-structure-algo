@@ -1,6 +1,7 @@
 package linkedlist_problems;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -24,7 +25,7 @@ public class MergeKSortedList {
 
 	private static void mergeKBruteForce(List<Node> nodes) {
 
-		PriorityQueue<Node> nodeMinHeap = new PriorityQueue<Node>((a, b) -> a.val - b.val);
+		PriorityQueue<Node> nodeMinHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a.val));
 		
 		/*
 		 * This loop will insert all the first node of the K linked list present afte that we 

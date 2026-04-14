@@ -24,8 +24,7 @@ public class Top_K_Frequent_Element {
 		for (int n : arr) {
 			map.put(n, map.getOrDefault(n, 0) + 1);
 		}
-		PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<Map.Entry<Integer, Integer>>(
-				(a, b) -> a.getValue() - b.getValue());
+		PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>((a,b)-> a.getValue() - b.getValue());
 		for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
 			pq.add(entry);
 			if (pq.size() > k) {

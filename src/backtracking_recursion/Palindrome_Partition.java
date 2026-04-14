@@ -7,19 +7,17 @@ public class Palindrome_Partition {
 
 	public static void main(String[] args) {
 		String s = "aabb";
-		List<List<String>> list = new ArrayList<List<String>>();
+		List<List<String>> list = new ArrayList<>();
 
-		backtrack(0, new ArrayList<String>(), list, s);
+		backtrack(0, new ArrayList<>(), list, s);
 
-		list.forEach((p) -> {
-			System.out.println(p);
-		});
+		list.forEach(System.out::println);
 	}
 
 	private static void backtrack(int idx, ArrayList<String> temp, List<List<String>> list, String s) {
 
 		if (idx == s.length()) {
-			list.add(new ArrayList<String>(temp));
+			list.add(new ArrayList<>(temp));
 			return;
 		}
 

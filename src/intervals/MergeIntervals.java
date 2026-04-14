@@ -20,7 +20,7 @@ public class MergeIntervals {
 		 * 
 		 */
 
-		int[][] arr = { { 1, 3 }, { 2, 6 }, { 8, 10 }, { 15, 18 } };
+		int[][] arr = { { 1, 4 }, {1, 5 }, { 6, 10 }, { 7, 9 } };
 
 		int[][] res = mergeIntervals(arr);
 
@@ -29,7 +29,7 @@ public class MergeIntervals {
 	}
 
 	private static int[][] mergeIntervals(int[][] intervals) {
-		List<int[]> ans = new ArrayList<int[]>();
+		List<int[]> ans = new ArrayList<>();
 		ans.add(intervals[0]);
 
 		for (int i = 1; i < intervals.length; i++) {
@@ -47,6 +47,8 @@ public class MergeIntervals {
 		int[][] res = new int[ans.size()][2];
 
 		ans.toArray(res);
+
+		System.out.println(Arrays.deepToString(ans.toArray(res)));
 
 		return res;
 

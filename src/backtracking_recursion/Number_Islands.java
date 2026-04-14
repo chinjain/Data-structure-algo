@@ -42,11 +42,14 @@ public class Number_Islands {
 		if (i < 0 || j < 0 || i >= grid.length || j >= grid[i].length || grid[i][j] == '0')
 			return;
 
+		// mark visited
 		grid[i][j] = '0';
-		search(grid, i + 1, j);
-		search(grid, i - 1, j);
-		search(grid, i, j + 1);
-		search(grid, i, j - 1);
+
+		// explore neighbours
+		search(grid, i + 1, j); // down
+		search(grid, i - 1, j); // up
+		search(grid, i, j + 1); //right
+		search(grid, i, j - 1); //left
 
 	}
 

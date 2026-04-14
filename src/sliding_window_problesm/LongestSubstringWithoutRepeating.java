@@ -9,13 +9,35 @@ public class LongestSubstringWithoutRepeating {
 
 	public static void main(String[] args) {
 
-		String str = "abcdefabcbb";
+		String str = "aaaa";
 
 		longestSubstring(str);
 		bruteforce(str);
 		
 		hashSetApproach(str);
+		brut_2(str);
 
+	}
+
+	private static void brut_2(String str) {
+
+		int res = 0;
+
+		for(int i = 0; i < str.length();i++){
+			boolean[] visit = new boolean[26];
+
+			for(int j = i; j < str.length(); j++){
+
+				if(visit[str.charAt(j) - 'a']){
+					break;
+				}else {
+					res = Math.max(res, j - i +1);
+					visit[str.charAt(j) - 'a'] = true;
+				}
+			}
+		}
+
+		System.out.println(res);
 	}
 
 	private static void hashSetApproach(String str) {
@@ -26,11 +48,10 @@ public class LongestSubstringWithoutRepeating {
 		
 		for(int r = 0; r < str.length(); r++) {
 			if(set.contains(str.charAt(r))) {
-				while(l < r) {
+				while(set.contains(str.charAt(r))) {
 					set.remove(str.charAt(l++));
 				}
 			}
-			
 			set.add(str.charAt(r));
 			ans = Math.max(ans, r - l + 1);
 		}
@@ -49,7 +70,7 @@ public class LongestSubstringWithoutRepeating {
 		for (int i = 0; i < n; i++) {
 			for (int j = i; j < n; j++) {
 				if (allUnique(str, i, j)) {
-					maxlen = Math.max(maxlen, j - i);
+					maxlen = Math.max(maxlen, j - i +1);
 				}
 			}
 		}
@@ -101,8 +122,6 @@ public class LongestSubstringWithoutRepeating {
 				map.put(ch, map.get(ch) - 1);
 				if (map.get(ch) == 1) {
 					break;
-				} else {
-					continue;
 				}
 			}
         }

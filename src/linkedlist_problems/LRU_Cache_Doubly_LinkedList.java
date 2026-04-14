@@ -91,6 +91,10 @@ class ListNode {
 		this.value = value;
 	}
 
+	public ListNode(int key) {
+		this.key = key;
+	}
+
 	public int getKey() {
 		return key;
 	}

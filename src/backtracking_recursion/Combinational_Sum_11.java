@@ -8,16 +8,14 @@ public class Combinational_Sum_11 {
 
 	public static void main(String[] args) {
 
-		int arr[] = { 10, 1, 2, 7, 6, 1, 5 };
+		int[] arr = { 10, 1, 2, 7, 6, 1, 5 };
 		int target = 9;
-		Arrays.sort(arr);
-		List<List<Integer>> list = new ArrayList<List<Integer>>();
+		Arrays.sort(arr); //OnLogN
+		List<List<Integer>> list = new ArrayList<>();
 
-		backtrack(list, new ArrayList<Integer>(), arr, target, 0);
+		backtrack(list, new ArrayList<>(), arr, target, 0);
 
-		list.parallelStream().forEach((s) -> {
-			System.out.println(s);
-		});
+		list.parallelStream().forEach(System.out::println);
 
 	}
 

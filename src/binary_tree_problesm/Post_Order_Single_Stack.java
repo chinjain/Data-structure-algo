@@ -60,30 +60,26 @@ public class Post_Order_Single_Stack {
 			return postOrder;
 		}
 
-		while (root != null || !stack.isEmpty()) {
+		Tree curr = root;
+		Tree prev = null;
 
-			if (root != null) {
-				stack.push(root);
-				root = root.left;
-			} else {
-				Tree node = stack.peek().right;
-				if (node == null) {
-					node = stack.peek();
-					stack.pop();
-					postOrder.add(node.val);
+		while (curr != null || !stack.isEmpty()){
 
-					while (!stack.isEmpty() && node == stack.peek().right) {
-						node = stack.peek();
-						stack.pop();
-						postOrder.add(node.val);
-					}
-				} else {
-					root = node;
-				}
+			while (curr != null){
+				stack.push(curr);
+				curr = curr.left;
+			}
 
+			curr = stack.peek();
+			if(curr.right != null && curr.right != prev){
+				curr = curr.right;
+			}else{
+				stack.pop();
+				postOrder.add(curr.val);
+				prev = curr;
+				curr = null;
 			}
 		}
-
 		return postOrder;
 	}
 

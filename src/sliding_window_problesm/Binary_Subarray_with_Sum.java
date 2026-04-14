@@ -27,15 +27,19 @@ public class Binary_Subarray_with_Sum {
 		
 
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-		map.put(0, 1);
+		map.put(0,1);
+		int sum = 0;
 		int cnt = 0;
-		int prevSum = 0;
 
-		for (int i = 0; i < a.length; i++) {
-			prevSum += a[i];
-			cnt += map.getOrDefault(prevSum - goal, 0);
+		for(int i = 0; i < a.length; i++){
+			sum += a[i];
+			int remSum = sum - goal;
 
-			map.put(prevSum, map.getOrDefault(prevSum, 0) + 1);
+			if(map.containsKey(remSum)){
+				cnt += map.get(remSum);
+			}else{
+				map.put(sum, map.getOrDefault(sum,0) + 1);
+			}
 		}
 
 		System.out.println("Binary_Subarray_with_Sum.maxSubarray()");

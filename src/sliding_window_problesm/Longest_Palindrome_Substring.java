@@ -1,9 +1,10 @@
 package sliding_window_problesm;
 
 public class Longest_Palindrome_Substring {
+
 	public static void main(String[] args) {
 
-		String s = "cbbd";
+		String s = "baabcaaacb";
 		bruteForce(s);
 
 		exapndFromCenterApproach(s);
@@ -49,7 +50,7 @@ public class Longest_Palindrome_Substring {
 		String maxString = s.substring(0, 1);
 
 		for (int i = 0; i < n; i++) {
-			for (int j = i + maxLen; j <= n; j++) {
+			for (int j = i; j <= n; j++) {
 
 				if (j - i > maxLen && isPalindrome(s.substring(i, j))) {
 

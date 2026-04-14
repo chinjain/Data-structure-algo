@@ -9,6 +9,27 @@ public class Minimum_Subarray_With_Required_Sum {
 
 		bruteForce(arr, x);
 		OptimalApproach(arr, x);
+
+		bestCode_appraoch(arr,x);
+	}
+
+	static void bestCode_appraoch(int [] a, int k){
+
+		int maxSum = Integer.MIN_VALUE;
+		int left = 0;
+		int windowSum = 0;
+
+		for(int right = 0; right < a.length; right++){
+			windowSum += a[right];
+
+			if(right - left + 1 == 3){
+				maxSum = Math.max(maxSum, windowSum);
+				windowSum -= a[left++];
+			}
+		}
+
+		System.out.println("Window sum" + maxSum);
+
 	}
 
 	private static void OptimalApproach(int[] arr, int x) {

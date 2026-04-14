@@ -1,9 +1,9 @@
 package arrays_problems;
 
-public class ContaierWithMostWater {
+public class ContainerWithMostWater {
 
 	public static void main(String[] args) {
-			int[] arr = { 1, 2, 2, 3 };
+			int[] arr = { 1, 5, 4, 3 };
 
 		bruteforceApproach(arr);
 		optimalApproach(arr);
@@ -25,10 +25,8 @@ public class ContaierWithMostWater {
 				--j;
 			}
 		}
-
 		System.out.println("ContainerWithMostWater.optimalApproach()");
 		System.out.println(max);
-
 	}
 
 	private static void bruteforceApproach(int[] arr) {

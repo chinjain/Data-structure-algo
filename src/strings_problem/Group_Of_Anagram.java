@@ -12,22 +12,42 @@ public class Group_Of_Anagram {
 
 		String[] strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
 
-		List<List<String>> lists = new ArrayList<List<String>>();
+		List<List<String>> lists = new ArrayList<>();
 
 		/*
-		 * 
-		 * Approach we follow here is as follow:
-		 * 
-		 * 1. we will iterate the array
-		 * 
-		 * 2. Take one string and sort the character in it
-		 * 
-		 * 3. make one frequency map and for that str -> [] list of string
-		 * 
-		 * 4. we will check for the key if it's exist we will add that string to the
-		 * corresponding list of the key!!
-		 * 
+
+		   Approach we follow here is as follow:
+
+		   1. we will iterate the array
+
+		   2. Take one string and sort the character in it
+
+		   3. make one frequency map and for that str -> [] list of string
+
+		   4. we will check for the key if it's exist we will add that string to the
+		   corresponding list of the key!!
+
 		 */
+
+		//brute force:
+
+		for(int i = 0; i < strs.length; i++){
+			char[] key = strs[i].toCharArray();
+			Arrays.sort(key);
+			String sortedKey = new String(key);
+			List<String> res = new ArrayList<>();
+			res.add(strs[i]);
+
+			for(int j = 1; j < strs.length; j++){
+
+				char[] ch = strs[i].toCharArray();
+				Arrays.sort(ch);
+
+				if(sortedKey.equals(new String(ch))){
+
+				}
+			}
+		}
 
 		approach_1(strs, lists);
 
@@ -52,12 +72,9 @@ public class Group_Of_Anagram {
 			if (!map.containsKey(key)) {
 				map.put(key, new ArrayList<>());
 			}
-
 			map.get(key).add(s);
 
 		}
-
 		lists.addAll(map.values());
-
 	}
 }

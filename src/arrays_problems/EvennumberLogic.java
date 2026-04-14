@@ -8,7 +8,7 @@ public class EvennumberLogic {
 	public static void main(String[] args) {
 
 		List<Integer> arr = Arrays.asList(1, 4, 3, 7, 9);
-		double average = arr.stream().filter(x -> x % 2 == 0).mapToInt(i -> i).average().getAsDouble();
+		double average = arr.stream().filter(x -> x % 2 == 0).mapToInt(Integer::intValue).average().orElse(0.0);
 
 		System.out.println(average);
 
@@ -21,7 +21,7 @@ public class EvennumberLogic {
 		 * here we will use the Bit manipulation and apply the logic to find the
 		 */
 
-		System.out.println("EvennumberLogic.evenNumberWithoutAnyOperator()");
+		System.out.println("Even numberLogic.evenNumberWithoutAnyOperator()");
 		for (int num : arr) {
 			if ((num & 1) == 0) {
 				System.out.println(num);

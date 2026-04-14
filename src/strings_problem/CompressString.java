@@ -7,8 +7,22 @@ public class CompressString {
 
     public static void main(String[] args) {
 
-        String input = "aabcccccaaa";
+        String input = "jksandfkj38298rh4r=";
 
+        int count = 1;
+        StringBuilder sb = new StringBuilder();
+
+        for(int i = 1; i < input.length(); i++){
+            if(input.charAt(i) == input.charAt(i - 1)){
+                count++;
+            }else {
+                sb.append(input.charAt(i - 1)).append(count);
+                count = 1;
+            }
+        }
+
+        sb.append(input.charAt(input.length() - 1)).append(count);
+        System.out.println(sb.toString());
         compress(input);
 
     }

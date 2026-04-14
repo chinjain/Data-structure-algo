@@ -98,8 +98,6 @@ public class MaxProductSubarray {
 				result = Math.max(result, mul);
 
 			}
-
-			result = Math.max(result, mul);
 		}
 
 		System.out.println("MaxProductSubarray.bruteForce()");

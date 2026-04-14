@@ -1,5 +1,7 @@
 package sliding_window_problesm;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +16,7 @@ public class MinimumWindowSubstring {
 		 * one is T we need to find the minimum window from S which consist of all the
 		 * character from T
 		 * 
-		 * b. what we will do create one hashmap and store all the occurence of those
+		 * b. what we will do create one hashmap and store all the occurrence of those
 		 * character in that map
 		 * 
 		 * c.
@@ -22,74 +24,46 @@ public class MinimumWindowSubstring {
 		 * 
 		 */
 
-		String s = "ADOBECODEBANC";
-		String t = "ABC";
+		String s = "BADNCOBECODEBANC";
+		String t = "BANC";
 
 				mws(s, t);
-		optimised(s, t);
+//		bruteForc(s, t);
 	}
 
-	private static void optimised(String s, String t) {
+	private static void bruteForc(String s, String t) {
 
-		/*
-		 * The appraoch Steps
-		 * 
-		 * 1. Create one map and store all the character of t
-		 * 
-		 * 2. then create variable to loop around Start pointer and end pointer
-		 * 
-		 * 3. matched if any point of time if we get character matched the we will
-		 * increament the value
-		 * 
-		 * 4. minLenght this will make sure the length of the min substring we need to
-		 * get the value we WE WILL initialise with max of str.length() + 1;
-		 * 
-		 */
+		String ans = "";
+		for(int i = 0; i < s.length(); i++){
+			for(int j = i; j < s.length(); j++){
+				String sub = s.substring(i, j + 1);
 
-		Map<Character, Integer> map = new HashMap<Character, Integer>();
-		for (char x : t.toCharArray())
-			map.put(x, map.getOrDefault(x, 0) + 1);
-
-		int matched = 0;
-		int start = 0;
-		int minLength = s.length() + 1;
-
-		int subStr = 0;
-
-		for (int end = 0; end < s.length(); end++) {
-			char right = s.charAt(end);
-
-			if (map.containsKey(right)) {
-				map.put(right, map.get(right) - 1);
-				if (map.get(right) == 0)
-					matched++;
-			}
-
-			while (matched == map.size()) {
-				if (minLength > end - start + 1) {
-					minLength = end - start + 1;
-					subStr = start;
-				}
-
-				char deleted = s.charAt(start++);
-				if (map.containsKey(deleted)) {
-					if (map.get(deleted) == 0) {
-						matched--;
+				if(containsAll(sub, t)){
+					if(ans.isEmpty() || ans.length() > sub.length()){
+						ans = sub;
 					}
-
-					map.put(deleted, map.get(deleted) + 1);
 				}
 			}
 		}
-
-		System.out.println("MinimumWindowSubstring.optimised()");
-		System.out.println(s.substring(subStr, subStr + minLength));
+		System.out.println("Answer is : " + ans);
 
 	}
 
-	private static void mws(String s, String t) {
-		// TODO Auto-generated method stub
+	private static boolean containsAll(String sub, String t) {
+		int[] freq = new int[128];
+		Arrays.fill(freq,0);
+		for(char c : sub.toCharArray()) freq[c]++;
 
+		for(char c : t.toCharArray()){
+			if(freq[c] == 0){
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+	private static void mws(String s, String t) {
 		Map<Character, Integer> t_map = new HashMap<>();
 		Map<Character, Integer> s_map = new HashMap<>();
 		String ans = "";
@@ -102,26 +76,26 @@ public class MinimumWindowSubstring {
 		int actualMatch = t.length();
 		int start = 0;
 		int end = 0;
-		while (end < s.length()) {
 
+		while (end < s.length()) {
 			boolean f1 = false;
 			boolean f2 = false;
 
+			// Expand right
 			while (end < s.length() && matched < actualMatch) {
 				f1 = true;
-
 				char ch = s.charAt(end);
 				s_map.put(ch, s_map.getOrDefault(ch, 0) + 1);
-
 				if (s_map.getOrDefault(ch, 0) <= t_map.getOrDefault(ch, 0)) {
 					matched++;
 				}
-
+				end++; // ✅ Bug 1 fixed
 			}
 
+			// Shrink left
 			while (start < end && matched == actualMatch) {
 				f2 = true;
-				String str = s.substring(start, end + 1);
+				String str = s.substring(start, end);  // ✅ end not end+1
 
 				if (ans.isEmpty() || str.length() < ans.length()) {
 					ans = str;
@@ -137,13 +111,12 @@ public class MinimumWindowSubstring {
 				if (s_map.getOrDefault(ch, 0) < t_map.getOrDefault(ch, 0)) {
 					matched--;
 				}
-
+				start++; // ✅ Bug 2 fixed
 			}
 
-			if (!f1 && !f2) {
-				break;
-			}
+			if (!f1 && !f2) break;
 		}
+
 		System.out.println(ans);
 	}
 }

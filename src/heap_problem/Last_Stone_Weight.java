@@ -14,7 +14,7 @@ public class Last_Stone_Weight {
 		System.out.println(ans);
 
 		/*
-		 * => we will achieve this by making Priority Queue &
+		 * => we will achieve this by making Priority queue_prob.Queue &
 		 * 
 		 */
 	}
