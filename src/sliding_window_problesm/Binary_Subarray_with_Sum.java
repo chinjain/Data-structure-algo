@@ -15,8 +15,27 @@ public class Binary_Subarray_with_Sum {
 		int goal = 2;
 
 		maxSubarray(a, goal);
+		bruteForce(a, goal);
 
 	}
+
+	static void bruteForce(int [] a, int tgt){
+		int count = 0;
+
+		for(int i = 0; i < a.length; i++){
+			int sum = 0;
+			for(int j = i; j < a.length; j++) {
+				sum += a[j];
+
+				if (sum == tgt)
+					count++;
+			}
+		}
+
+		System.out.println(count);
+
+	}
+
 
 	private static void maxSubarray(int[] a, int goal) {
 		
