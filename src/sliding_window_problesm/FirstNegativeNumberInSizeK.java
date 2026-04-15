@@ -6,7 +6,7 @@ public class FirstNegativeNumberInSizeK {
 
     public static void main(String[] args) {
 
-        int [] arr = {-1,3,1,-5,-6,4,-10,11,-12,-4};
+        int [] arr = {12, -1, -7, 8, -15, 30, 16, 28};
         int k = 3;
         
         List<Integer> res = new ArrayList<>();
@@ -18,7 +18,7 @@ public class FirstNegativeNumberInSizeK {
             }
             
             if(arr[i] < 0){
-                dq.add(i);
+                dq.addLast(i);
             }
 
             if(i >= k - 1){

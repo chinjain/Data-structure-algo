@@ -40,5 +40,9 @@ public class NextPermutations {
             }
         }
 
+        Collections.reverse(list.subList(idx + 1, list.size()));
+
+        System.out.println(list);
+
     }
 }

@@ -93,14 +93,15 @@ public class Next_Permutation {
 		// reverse the sub list
 
 		int j = arr.length - 1;
+		int i = ind + 1;
 
 		while (ind < j) {
 
-			int temp = arr[ind];
-			arr[ind] = arr[j];
+			int temp = arr[i];
+			arr[i] = arr[j];
 			arr[j] = temp;
 
-			ind++;
+			i++;
 			--j;
 
 		}
