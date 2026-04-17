@@ -1,8 +1,7 @@
-package javaStream_problems;
+package java8_problems_solutions;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -1,4 +1,4 @@
-package javaStream_problems;
+package java8_problems_solutions;
 
 import java.util.Arrays;
 import java.util.Comparator;
