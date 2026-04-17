@@ -6,7 +6,7 @@ public class InsertionSort_Algo {
 
 	public static void main(String[] args) {
 
-		int[] arr = { 10, 80, 30, 90, 40 };
+		int[] arr = { 10, 80, 30, 90, 40 ,5,0};
 
 		sort(arr, arr.length);
 

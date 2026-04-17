@@ -43,7 +43,7 @@ public class Sliding_window_Maximum {
 		Deque<Integer> deque = new ArrayDeque<>();
 		for (int i = 0; i < n; i++) {
 			// check for the window weather it's in the range or not
-			if (!deque.isEmpty() && deque.peek() < i - k + 1) {
+			while (!deque.isEmpty() && deque.peek() < i - k + 1) {
 				deque.poll();
 			}
 			while (!deque.isEmpty() && num[deque.peekLast()] < num[i]) {

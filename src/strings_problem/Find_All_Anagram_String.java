@@ -28,9 +28,10 @@ public class Find_All_Anagram_String {
 			}
 
 			count_s[s.charAt(i) - 'a']++;
-			count_p[s.charAt(i - p.length() - 'a')]--;
-
+			count_s[s.charAt(i - p.length()) - 'a']--;
 		}
+
+		System.out.println(response);
 
 	}
 
