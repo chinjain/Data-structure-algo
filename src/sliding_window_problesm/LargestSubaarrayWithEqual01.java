@@ -46,14 +46,13 @@ public class LargestSubaarrayWithEqual01 {
 	}
 
 	private static void bruteforce(int[] arr, int length) {
-		
-		int sum = 0;
+
 		int maxSize = -1, startIdx = 0;
 		int endIdx = 0;
 		
 		for(int i = 0; i < length-1; i++) {
 			
-			sum = (arr[i] == 0) ? -1 : 1;
+		int	sum = (arr[i] == 0) ? -1 : 1;
 			
 			for(int j = i+1; j < length; j++) {
 				if(arr[j] == 0) {
@@ -70,7 +69,6 @@ public class LargestSubaarrayWithEqual01 {
 			
 			
 		}
-		
 		endIdx = startIdx + maxSize - 1;
 		if(maxSize == -1)
 			System.out.println("No such arrays");

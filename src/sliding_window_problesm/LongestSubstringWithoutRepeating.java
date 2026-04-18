@@ -9,11 +9,9 @@ public class LongestSubstringWithoutRepeating {
 
 	public static void main(String[] args) {
 
-		String str = "aaaa";
+		String str = "geeksforgeeks";
 
 		longestSubstring(str);
-		bruteforce(str);
-		
 		hashSetApproach(str);
 		brut_2(str);
 
@@ -47,11 +45,9 @@ public class LongestSubstringWithoutRepeating {
 		Set<Character> set = new HashSet<>();
 		
 		for(int r = 0; r < str.length(); r++) {
-			if(set.contains(str.charAt(r))) {
-				while(set.contains(str.charAt(r))) {
+				while(l < r &&  set.contains(str.charAt(r))) {
 					set.remove(str.charAt(l++));
 				}
-			}
 			set.add(str.charAt(r));
 			ans = Math.max(ans, r - l + 1);
 		}
@@ -59,40 +55,6 @@ public class LongestSubstringWithoutRepeating {
 		System.out.println("LongestSubstringWithoutRepeating.hashSetApproach()");
 		System.out.println(ans);
 		
-	}
-
-	private static void bruteforce(String str) {
-		
-		// Time Complexity that will be around O(n^2)
-		int maxlen = 0;
-		int n = str.length();
-
-		for (int i = 0; i < n; i++) {
-			for (int j = i; j < n; j++) {
-				if (allUnique(str, i, j)) {
-					maxlen = Math.max(maxlen, j - i +1);
-				}
-			}
-		}
-
-		System.out.println("LongestSubstringWithoutRepeating.bruteforce()");
-		System.out.println(maxlen);
-
-	}
-
-	private static boolean allUnique(String str, int i, int j) {
-		HashSet<Character> characters = new HashSet<>();
-
-		for (int start = i; start < j; start++) {
-			char ch = str.charAt(start);
-			if (characters.contains(ch)) {
-				return false;
-			}
-
-			characters.add(ch);
-		}
-
-		return true;
 	}
 
 	private static void longestSubstring(String str) {

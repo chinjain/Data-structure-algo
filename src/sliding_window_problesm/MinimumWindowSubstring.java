@@ -28,7 +28,51 @@ public class MinimumWindowSubstring {
 		String t = "BANC";
 
 				mws(s, t);
+				optimalSubstring(s,t);
 //		bruteForc(s, t);
+	}
+
+	private static void optimalSubstring(String s, String t) {
+		Map<Character, Integer> tMap = new HashMap<>();
+		Map<Character, Integer> sMap = new HashMap<>();
+		String ans = "";
+
+		for(char c : t.toCharArray()){
+			tMap.put(c , tMap.getOrDefault(c,0) + 1);
+		}
+
+		int have = 0;
+		int needLength = tMap.size();
+		int left = 0;
+		int minLength = Integer.MAX_VALUE;
+		int start = 0;
+
+		for(int right = 0; right < s.length(); right++){
+			char c = s.charAt(right);
+			sMap.put(c, sMap.getOrDefault(c,0) + 1);
+
+			if(tMap.containsKey(c) && tMap.get(c).intValue() == sMap.get(c).intValue()){
+				have++;
+			}
+
+			while (have == needLength){
+				if(right - left + 1 < minLength){
+					minLength = right - left + 1;
+					start = left;
+				}
+
+				char remove = s.charAt(left);
+				sMap.put(remove, sMap.get(remove) - 1);
+
+				if(tMap.containsKey(remove) && sMap.get(remove) < tMap.get(remove)){
+					have--;
+				}
+				left++;
+			}
+		}
+
+		System.out.println(minLength == Integer.MAX_VALUE ? "" : s.substring(start, start + minLength));
+
 	}
 
 	private static void bruteForc(String s, String t) {

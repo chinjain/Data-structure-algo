@@ -17,13 +17,9 @@ public class InsertInterval {
 
 	public static void main(final String[] args) {
 		final int[][] intervals = { { 1, 3 }, { 5, 7 }, { 8, 10 }, { 11, 12 } };
-		final int[] newInterval =  { 4, 9 } ;
+		final int[] newInterval =  { 6, 14 } ;
 
-		final int res[][] = insertInterval(intervals, newInterval);
-		
-		System.out.println(Arrays.toString(res));
-		
-		
+		insertInterval(intervals, newInterval);
 
 	}
 
@@ -51,8 +47,8 @@ public class InsertInterval {
 		if(!inserted) {
 			result.add(newInterval);
 		}
-		
-		
+
+		System.out.println(result);
 		return result.toArray(new int[result.size()][2]);
 	}
 
