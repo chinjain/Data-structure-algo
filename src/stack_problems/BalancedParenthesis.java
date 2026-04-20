@@ -11,9 +11,9 @@ public class BalancedParenthesis {
 				"(]",
 				"([)]",
 				"{[]}",
-				"",        // edge case — empty string
-				"(((",     // edge case — only opening
-				")))"      // edge case — only closing
+				"",
+				"(((",
+				")))"
 		};
 
 		for (String test : tests) {
