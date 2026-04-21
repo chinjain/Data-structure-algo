@@ -1,3 +1,4 @@
+package two_dimensional_array;
 
 public class Search_2D_Arrays {
 
@@ -42,7 +43,7 @@ public class Search_2D_Arrays {
 		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < col; j++) {
 				if (matrix[i][j] == target) {
-					System.out.println("Search_2D_Arrays.bruteForc()");
+					System.out.println("two_dimensional_array.Search_2D_Arrays.bruteForc()");
 					System.out.println("FOUND");
 					break;
 				}
