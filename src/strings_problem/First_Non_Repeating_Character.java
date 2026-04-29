@@ -26,19 +26,13 @@ public class First_Non_Repeating_Character {
 				System.out.println(str.charAt(i));
 				break;
 			}
-
 		}
-
-
 	}
 
 	private static void naiveApproach(String str, int length) {
-
 		for(int i = 0; i < length; i++){
 			boolean found = false;
-
 			for(int j = 0; j < length; j++){
-
 				if(i != j && str.charAt(i) == str.charAt(j)){
 					found = true;
 					break;
@@ -49,9 +43,7 @@ public class First_Non_Repeating_Character {
 				break;
 			}
 		}
-
 		System.out.println(" ");
-
 	}
 
 }

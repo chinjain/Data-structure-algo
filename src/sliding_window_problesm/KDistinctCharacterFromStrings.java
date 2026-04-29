@@ -7,8 +7,8 @@ public class KDistinctCharacterFromStrings {
 
 	public static void main(String[] args) {
 
-		String s = "aa";
-		int k = 1;
+		String s = "aabc";
+		int k = 2;
 		find(s, k);
 	}
 
@@ -24,21 +24,20 @@ public class KDistinctCharacterFromStrings {
 			char ch = s.charAt(i);
 			map.put(ch, map.getOrDefault(ch, 0) + 1);
 			i++;
-			if (map.size() <= k) {
-				ans = Math.max(ans, i - j);
-			} else {
-				while (map.size() > k) {
-					char c = s.charAt(j);
-					if (map.get(c) == 1) {
-						map.remove(c);
-					} else {
-						map.put(c, map.get(c) - 1);
-					}
-					j++;
-				}
+
+			while (map.size() > k){
+				char c = s.charAt(j);
+				if(map.get(c) == 1)
+					map.remove(c);
+				else
+					map.put(c, map.get(c) -1);
+				j++;
 			}
 
+			ans = Math.max(ans, i - j);
 		}
+
+		System.out.println("Substring is :" + s.substring(0, j + 1));
 
 		System.out.println("KDistinctCharacterFromStrings.find()");
 		System.out.println(ans);
