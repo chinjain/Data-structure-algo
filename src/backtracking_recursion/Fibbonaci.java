@@ -9,6 +9,8 @@ public class Fibbonaci {
 		for (int i = 0; i < 9; i++) {
 			System.out.print(fib(i) + " ");
 		}
+
+
 	}
 
 	private static int fib(int i) {

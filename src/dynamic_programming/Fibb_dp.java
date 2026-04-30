@@ -8,23 +8,17 @@ public class Fibb_dp {
 
         int n = 9;
         int [] dp = new int[n + 1];
-        Arrays.fill(dp, -1);
-        int fact = fibb(n, dp);
+        dp[0] = 0;
+        dp[1] = 1;
 
-        System.out.println(fact);
-
-
-    }
-
-    public static int fibb(int n, int[] dp){
-        if(n <= 1){
-            return n;
+        for(int i = 2; i <= n; i++){
+            dp[i] = dp[i - 1] + dp[i - 2];
         }
 
-        if(dp[n] != -1){
-            return dp[n];
+        for(int i = 0; i <= n; i++){
+            System.out.println(dp[i] + " ");
         }
 
-        return dp[n] = fibb(n-1, dp) + fibb(n -2, dp);
+
     }
 }

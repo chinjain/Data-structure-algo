@@ -7,7 +7,7 @@ public class CompressString {
 
     public static void main(String[] args) {
 
-        String input = "jksandfkj38298rh4r=";
+        String input = "aabcaaddeeaabc";
 
         int count = 1;
         StringBuilder sb = new StringBuilder();

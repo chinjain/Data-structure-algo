@@ -24,12 +24,14 @@ public class ConvertStringToInteger {
 
 	private static void printNumberFromArray(char[] alphanumericArray) {
 
-		int res[] = new int[alphanumericArray.length];
+		int res = 0;
 
-		for (int i = 0; i < alphanumericArray.length; i++) {
-			if (Character.isDigit(alphanumericArray[i])) {
-				System.out.println(alphanumericArray[i]);
-			}
-		}
+        for (char c : alphanumericArray) {
+            if (Character.isDigit(c)) {
+                res = res * 10 + c - '0';
+            }
+        }
+
+		System.out.println(res);
 	}
 }
