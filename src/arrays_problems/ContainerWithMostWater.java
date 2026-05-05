@@ -16,7 +16,10 @@ public class ContainerWithMostWater {
 		int max = Integer.MIN_VALUE;
 
 		while (i < j) {
-			int water = (j - i) * Math.min(arr[i], arr[j]);
+
+			int width = j - i;
+			int h = Math.min(arr[i],arr[j]);
+			int water = width * h;
 			max = Math.max(water, max);
 
 			if (arr[i] < arr[j]) {

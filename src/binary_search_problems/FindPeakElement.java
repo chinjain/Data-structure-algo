@@ -46,8 +46,6 @@ public class FindPeakElement {
                 r = mid - 1;
             }
         }
-
-
     }
 
     private static void findPeak_brute(int[] arr) {

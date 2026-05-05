@@ -7,11 +7,32 @@ public class CountSubstringsKDistinct {
 
     public static void main(String[] args) {
 
-        String s = "aba";
+        String s = "abcba";
         int k = 2;
+//        bruteforce(s, k);
 
-        countString(s, k);
-        bruteforce(s, k);
+        Map<Character,Integer> freqMap = new HashMap<>();
+        int j = 0;
+        int ans = 0;
+
+        for(int i = 0; i < s.length(); i++){
+            freqMap.put(s.charAt(i),freqMap.getOrDefault(s.charAt(i),0) + 1);
+
+            while (freqMap.size() > k){
+                char c = s.charAt(j);
+                if(freqMap.get(c) == 1)
+                    freqMap.remove(c);
+                else {
+                    freqMap.put(c, freqMap.get(c) - 1);
+                }
+                j++;
+            }
+
+            ans += i - j ;
+            System.out.println(s.substring(j, i + 1));
+        }
+
+        System.out.println(ans);
 
     }
 
@@ -27,6 +48,7 @@ public class CountSubstringsKDistinct {
 
                 if(map.size() == k){
                     cnt += j - i;
+                    System.out.println(s.substring(i, j + 1));
                 }else if (map.size() > k){
                     break;
                 }

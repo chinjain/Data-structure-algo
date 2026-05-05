@@ -37,29 +37,29 @@ public class ZigZagTraversalOfBt {
         while (!queue.isEmpty()){
 
             int size = queue.size();
-            List<Integer> row = new ArrayList<>();
+            LinkedList<Integer> level = new LinkedList<>();
 
             for(int i = 0; i < size; i++){
-
                 Tree node = queue.poll();
 
-                int index = leftToRight ? i : (size - 1 - i);//this will store the data in reverse order from max index to low index;
-
-                row.add(index,node.val);
+                if(leftToRight){
+                    level.addLast(node.val);
+                }else {
+                    level.addFirst(node.val);
+                }
 
                 if(node.left != null){
                     queue.add(node.left);
                 }
-
-                if(node.right != null){
+                if(node.right != null)
                     queue.add(node.right);
-                }
-
             }
 
             leftToRight = !leftToRight;
-            result.add(row);
+            result.add(level);
         }
+
+        result.forEach(System.out::println);
 
         return result;
     }
