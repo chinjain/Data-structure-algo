@@ -1,19 +1,21 @@
 package strings_problem;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Duplicate_Char_String {
 
 	public static void main(String[] args) {
 		String s = "geeksforgeeks";
-
 		optimal(s);
 		mapApproach(s);
 		removeDuplicate(s);
-
 	}
 
 	private static void removeDuplicate(String s) {
@@ -21,7 +23,7 @@ public class Duplicate_Char_String {
 		StringBuffer sb = new StringBuffer();
 		char[] ch = s.toCharArray();
 
-		HashSet<Character> set = new HashSet<Character>();
+		HashSet<Character> set = new HashSet<>();
 
 		for (char c : ch) {
 			if (!set.contains(c)) {
@@ -29,26 +31,19 @@ public class Duplicate_Char_String {
 				set.add(c);
 			}
 		}
-		
 		System.out.println(sb.toString());
 
 	}
 
 	private static void mapApproach(String s) {
-		Map<Character, Integer> map = new HashMap<Character, Integer>();
-
-		for (int i = 0; i < s.length(); i++) {
-			char ch = s.charAt(i);
-			map.put(ch, map.getOrDefault(ch, 0) + 1);
-		}
-
+		System.out.println("====== MAP ========");
+		Map<Character, Long> map = s.chars().mapToObj(i -> (char) i).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
 		map.entrySet().stream().filter(e -> e.getValue() > 1).map(Map.Entry::getKey).forEach(System.out::println);
 	}
 
 	private static void optimal(String s) {
 		
-		System.out.println("Duplicate_Char_String.optimal()");
-
+		System.out.println("");
 		char ch[] = s.toCharArray();
 		Arrays.sort(ch);
 		s = new String(ch);

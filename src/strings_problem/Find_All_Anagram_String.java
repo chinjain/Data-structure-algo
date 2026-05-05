@@ -8,12 +8,10 @@ public class Find_All_Anagram_String {
 	static final int MAX = 256;
 
 	public static void main(String[] args) {
-
 		String s = "cbaebabacd";
 		String p = "abc";
 
 		List<Integer> response = new ArrayList<Integer>();
-
 		int[] count_p = new int[26];
 		int[] count_s = new int[26];
 
@@ -21,18 +19,14 @@ public class Find_All_Anagram_String {
 			count_p[p.charAt(i) - 'a']++;
 			count_s[s.charAt(i) - 'a']++;// fill first window in text
 		}
-
 		for (int i = p.length(); i < s.length(); i++) {
 			if (compare(count_p, count_s)) {
 				response.add(i - p.length());
 			}
-
 			count_s[s.charAt(i) - 'a']++;
 			count_s[s.charAt(i - p.length()) - 'a']--;
 		}
-
 		System.out.println(response);
-
 	}
 
 	public static boolean compare(int[] a1, int[] a2) {

@@ -18,8 +18,8 @@ public class Vertical_Order_Traversal {
 		root.left.left.right = new Tree(5);
 		root.left.left.right.right = new Tree(6);
 		root.right = new Tree(3);
-		root.right.right = new Tree(10);
 		root.right.left = new Tree(9);
+		root.right.right = new Tree(11);
 
 		List<List<Integer>> res = new ArrayList<>();
 		Map<Integer,List<Integer>> map = new HashMap<>();
@@ -48,7 +48,7 @@ public class Vertical_Order_Traversal {
 
 		}
 
-		for(int i = minCol; i < maxCol; i++){
+		for(int i = minCol; i <= maxCol; i++){
 			res.add(map.get(i));
 		}
 
