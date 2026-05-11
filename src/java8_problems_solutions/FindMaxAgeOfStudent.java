@@ -22,27 +22,25 @@ public class FindMaxAgeOfStudent {
 
 		System.out.println("=============== Average of male & Female students ==========================");
 		OptionalDouble maleAge = list.stream().filter(s -> s.getGender().equalsIgnoreCase("male"))
-				.mapToInt(s -> s.getAge()).average();
+				.mapToInt(Student::getAge).average();
 		OptionalDouble femaleAge = list.stream().filter(s -> s.getGender().equalsIgnoreCase("male"))
-				.mapToInt(s -> s.getAge()).average();
+				.mapToInt(Student::getAge).average();
 		System.out.println(maleAge.getAsDouble());
 		System.out.println(femaleAge.getAsDouble());
 
 		System.out.println("====== Get A map of male & female and value as List<String> ===================");
 
 		Map<String, List<Student>> genderBasedMap = list.stream().collect(Collectors.groupingBy(Student::getGender));
-		genderBasedMap.entrySet().stream().forEach(entry -> {
-			System.out.println(entry.getKey() + ":" + entry.getValue());
-		});
+		genderBasedMap.forEach((key, value) -> System.out.println(key + ":" + value));
 
 	}
 
 }
 
 class Student {
-	private String name;
-	private int age;
-	private String gender;
+	private final String name;
+	private final int age;
+	private final String gender;
 
 	public Student(String name, int age, String gender) {
 		this.name = name;

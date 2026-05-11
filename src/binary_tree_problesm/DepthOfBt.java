@@ -35,21 +35,22 @@ public class DepthOfBt {
     static void bfs(Tree root){
         System.out.print("BFS");
 
-        Queue<Tree> q = new LinkedList<>();
-        q.add(root);
-        int depth = 0;
+        Queue<Tree> queue = new LinkedList<>();
+        queue.offer(root);
+        int level = 0;
 
-        while (!q.isEmpty()){
-           int size = q.size();
-           depth++;
+        while(!queue.isEmpty() ){
+            int size = queue.size();
+            level++;
 
-           for(int i = 0; i < size; i++){
-               Tree node = q.poll();
-               if(node.left != null) q.add(node.left);
-               if(node.right != null) q.add(node.right);
-           }
+            for(int i = 0; i < size; i++){
+                Tree node = queue.poll();
+
+                if(node.left != null) queue.offer(node.left);
+                if(node.right != null) queue.offer(node.right);
+            }
         }
 
-        System.out.println(depth);
+        System.out.println("Total levels are : " + level);
     }
 }
