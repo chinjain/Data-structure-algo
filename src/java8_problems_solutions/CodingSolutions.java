@@ -100,7 +100,9 @@ public class CodingSolutions {
     private static void second_high_salary_deptWise(List<Employee> employees) {
         System.out.println("========= 2nd high salary dept wise =========");
 
-        Map<String, Double> deptSalary = employees.stream().collect(Collectors.groupingBy(Employee::getDept,Collectors.collectingAndThen(Collectors.toList(), list ->
+        Map<String, Double> deptSalary = employees
+                .stream()
+                .collect(Collectors.groupingBy(Employee::getDept,Collectors.collectingAndThen(Collectors.toList(), list ->
                 list.stream().map(Employee::getSalary).distinct().sorted(Comparator.reverseOrder()).skip(1).findFirst().get())));
 
         System.out.println(deptSalary);
