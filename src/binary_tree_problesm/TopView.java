@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Queue;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class TopView {
@@ -30,7 +31,7 @@ public class TopView {
 	private static void topView(Tree root) {
 
 		Queue<Pair> queue = new LinkedList<Pair>();
-		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+		Map<Integer, Integer> map = new TreeMap<>();
 		queue.add(new Pair(root, 0));
 
 		while (!queue.isEmpty()) {

@@ -19,6 +19,11 @@ public class Fibb_dp {
             System.out.println(dp[i] + " ");
         }
 
+    }
 
+    static int fibb(int num){
+        if(num <= 1)
+            return num;
+        return fibb(num - 1) + fibb(num - 2);
     }
 }
