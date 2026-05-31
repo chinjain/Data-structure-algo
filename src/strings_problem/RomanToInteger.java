@@ -17,7 +17,7 @@ public class RomanToInteger {
         romanMap.put('M',1000);
 
         int res = 0;
-        String s = "XC";
+        String s = "MCMXCIV";
 
         for(int i = 0; i < s.length(); i++){
             if(i + 1 < s.length() && romanMap.get(s.charAt(i)) < romanMap.get(s.charAt(i+1))){

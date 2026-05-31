@@ -19,7 +19,7 @@ public class JobSchedulingProblem {
     }
 
     private static int[] jobScheduling(Job[] jobs) {
-        Arrays.sort(jobs, (a,b) -> b.profit - a.profit);
+        Arrays.sort(jobs, (a,b) -> b.profit - a.profit); // ONlogN.
         int maxDeadline = 0;
         for(Job job : jobs){
             maxDeadline = Math.max(maxDeadline, job.deadline);

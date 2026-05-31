@@ -46,6 +46,7 @@ public class Longest_Prefix_String {
 
 		for (int i = 1; i < s.length - 1; i++) {
 			String sol = findPrefixWordByWord(prefix, s[i]);
+			prefix = sol;
 		}
 
 		System.out.println("Longest_Prefix_String.bruteForceAppraoch()");

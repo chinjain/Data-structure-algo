@@ -9,7 +9,6 @@ public class MinPlatformRequiredForTrains {
 
         int maxPlatforms = Integer.MIN_VALUE;
 
-
         for(int i = 0; i < arr.length; i++){
             int platform = 1;
 
