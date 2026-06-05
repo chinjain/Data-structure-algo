@@ -11,6 +11,7 @@ public class LargestRectangleHistogram {
     }
 
 
+    //O(N^2)
     public static int largestRectangleArea(int[] h) {
 
         int maxArea = 0;
@@ -27,11 +28,8 @@ public class LargestRectangleHistogram {
             int width = r - l - 1;
             maxArea = Math.max(maxArea, width * height);
         }
-
-
         System.out.println("Max Area of rectangle is : "+ maxArea);
         return maxArea;
-
     }
 
     public static void optimal(int[] h){

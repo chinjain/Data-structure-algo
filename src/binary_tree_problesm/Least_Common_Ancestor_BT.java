@@ -28,10 +28,10 @@ public class Least_Common_Ancestor_BT {
 		Tree l_node = lca(root.left, i, j);
 		Tree r_nTree = lca(root.right, i, j);
 
-		if (l_node != null && r_nTree != null) {
-			return root;
-		}
-		return l_node != null ? l_node : r_nTree;
+		if(l_node == null) return r_nTree;
+		if(r_nTree == null) return  l_node;
+
+		return root;
 	}
 
 }

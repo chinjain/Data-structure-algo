@@ -6,7 +6,7 @@ public class NthRoot {
         System.out.println(nthRoot(2, 16));  // 4
         System.out.println(nthRoot(2, 25));  // 5
 
-//        brute(2,9);
+        brute(3,9);
     }
 
     private static int nthRoot(int n, int m) {
@@ -35,15 +35,23 @@ public class NthRoot {
     }
 
     static void brute(int n, int m){
+        boolean answer = false;
+
         for(int i = 1; i <= m; i++){
             long power = (long) Math.pow(i, n);
             if(power == m){
+                answer = true;
                 System.out.println("power = " + i);
                 break;
             }
 
-            if(power > m)
+            if(power > m) {
+                answer = false;
                 break;
+            }
         }
+
+        if(!answer)
+            System.out.println(-1);
     }
 }

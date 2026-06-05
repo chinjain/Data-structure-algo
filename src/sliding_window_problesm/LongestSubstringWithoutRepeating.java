@@ -45,9 +45,9 @@ public class LongestSubstringWithoutRepeating {
 		Set<Character> set = new HashSet<>();
 		
 		for(int r = 0; r < str.length(); r++) {
-				while(l < r &&  set.contains(str.charAt(r))) {
-					set.remove(str.charAt(l++));
-				}
+			while(l < r &&  set.contains(str.charAt(r))) {
+				set.remove(str.charAt(l++));
+			}
 			set.add(str.charAt(r));
 			ans = Math.max(ans, r - l + 1);
 		}

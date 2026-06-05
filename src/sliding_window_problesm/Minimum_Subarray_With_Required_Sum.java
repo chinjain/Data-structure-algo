@@ -14,47 +14,36 @@ public class Minimum_Subarray_With_Required_Sum {
 
 	private static void OptimalApproach(int[] arr, int x) {
 
-		int currSum = 0;
-		int minLen = arr.length + 1;
+		int left = 0;
+		int sum = 0;
+		int minLen = Integer.MAX_VALUE;
 
-		int start = 0, end = 0;
-		while (end < arr.length) {
-			while (currSum <= x && end < arr.length) {
-				currSum += arr[end++];
-			}
+		for(int right = 0; right < arr.length; right++){
+			sum += arr[right];
 
-			while (currSum > x && start < arr.length) {
-				if (end - start < minLen) {
-					minLen = end - start;
-				}
+			while (sum >= x){
+				minLen = Math.min(minLen, right - left + 1);
 
-				currSum -= arr[start++];
+				sum -= arr[left++];
 			}
 		}
-		
+
 		System.out.println("Minimum_Subarray_With_Required_Sum.OptimalApproach()");
-		System.out.println(minLen);
+		System.out.println(minLen != Integer.MAX_VALUE ? minLen : 0);
 
 	}
 
 	private static void bruteForce(int[] arr, int x) {
-		int minLen = arr.length + 1;
+		int minLen = Integer.MAX_VALUE;
 
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 0; i < arr.length; i++){
+			int sum = 0;
 
-			int curr_sum = arr[i];
-
-			if (curr_sum > x) {
-				System.out.println(1);
-				return;
-			}
-
-			for (int j = i + 1; j < arr.length; j++) {
-				curr_sum += arr[j];
-
-				if (curr_sum == x && (j - i + 1) < minLen) {
-					System.out.println(arr[j]);
-					minLen = j - i + 1;
+			for(int j = i; j < arr.length; j++){
+				sum += arr[i];
+				if(sum >= x){
+					minLen = Math.min(minLen, j - i + 1);
+					break;
 				}
 			}
 		}

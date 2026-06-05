@@ -24,10 +24,10 @@ public class ReverseLinkedList {
 		Node prev = null;
 
 		while (temp != null) {
-			Node front = temp.next;
+			Node next = temp.next;
 			temp.next = prev;
 			prev = temp;
-			temp = front;
+			temp = next;
 		}
 
 		System.out.println("ReverseLinkedList.OptimalApproach()");

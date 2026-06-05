@@ -79,7 +79,6 @@ public class NearestCellDistance {
                         break;
                     }
 
-
                     for(int d = 0; d < 4; d++){
                         int newRow = ro + deltaRow[d];
                         int newCol = co + deltaCol[d];

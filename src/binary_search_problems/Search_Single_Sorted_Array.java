@@ -32,9 +32,6 @@ public class Search_Single_Sorted_Array {
 				System.out.println(arr.get(mid));
 				return;
 			}
-
-			// we are in the left
-			
 			/*
 			 * 
 			 * we can have the array in the formate of odd-even or even-odd

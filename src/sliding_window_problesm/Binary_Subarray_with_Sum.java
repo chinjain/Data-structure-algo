@@ -14,8 +14,8 @@ public class Binary_Subarray_with_Sum {
 		int[] a = { 1, 0, 1, 0, 1 };
 		int goal = 2;
 
-		maxSubarray(a, goal);
-		bruteForce(a, goal);
+		maxSubarray(a, goal); //
+		bruteForce(a, goal); // ON^2
 
 	}
 

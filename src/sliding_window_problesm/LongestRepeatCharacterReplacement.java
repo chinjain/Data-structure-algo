@@ -13,6 +13,28 @@ public class LongestRepeatCharacterReplacement {
 //		solution(s, k);
 		usingMap(s, k);
 
+		brute();
+	}
+
+	static void brute(){
+		String s = "AAABBABABABBBC";
+		int k = 3;
+		int ans = 0;
+		for(int i = 0; i < s.length(); i++){
+			Map<Character,Integer> freq = new HashMap<>();
+			int maxRepeat = 0;
+			for(int j = i; j < s.length(); j++){
+				char c = s.charAt(j);
+				freq.put(c, freq.getOrDefault(c,0) + 1);
+				maxRepeat = Math.max(maxRepeat, freq.get(c));
+
+				if(j-i+1 - maxRepeat <= k){
+					ans = Math.max(ans, j - i + 1);
+				}
+			}
+		}
+
+		System.out.println("Brute : " + ans);
 	}
 
 	private static void usingMap(String s, int k) {

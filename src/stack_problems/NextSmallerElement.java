@@ -30,11 +30,10 @@ public class NextSmallerElement {
 
         for(int i = 0; i < a.length; i++){
 
-            while (!st.isEmpty() && a[st.peek()] > a[i]){
+            while (!st.isEmpty() && a[st.peek()] >= a[i]){
                 int idx = st.pop();
                 res[idx] = a[i];
             }
-
             st.push(i);
         }
 

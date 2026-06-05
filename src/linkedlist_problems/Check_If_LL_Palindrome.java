@@ -56,10 +56,6 @@ public class Check_If_LL_Palindrome {
 		Long end = System.currentTimeMillis();
 
 		System.out.println("[Brute Force] : Palindrome With time : " + (end-start));
-
-
-
-
 	}
 
 	/*
